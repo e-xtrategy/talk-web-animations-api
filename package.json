@@ -1,0 +1,9 @@
+{
+  "name": "talk-web-animations-api",
+  "version": "1.0.0",
+  "description": "Code for a talk about web animations API",
+  "main": "index.js",
+  "repository": "git@github.com:e-xtrategy/talk-web-animations-api.git",
+  "author": "extrategy ",
+  "license": "WTFPL"
+}
