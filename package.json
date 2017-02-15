@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "git@github.com:e-xtrategy/talk-web-animations-api.git",
   "author": "extrategy ",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "scripts": {
+    "start": "http-server"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
 }
