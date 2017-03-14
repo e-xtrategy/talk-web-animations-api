@@ -5,6 +5,7 @@ Codice per Talk su Web Animations API
 
     yarn
     npm start
+    sass (sass --watch scss:css)
 
 ## License
 
