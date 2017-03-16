@@ -1,0 +1,118 @@
+// Web Animation API Animation SCSS
+
+// Content:
+// - animation
+// - a-fade_in
+// - a-fade_out
+// - a-swipe_left_in
+// - a-swipe_left_out
+// - a-swipe_right_in
+// - a-swipe_right_out
+// - a-swipe_down_in
+// - a-swipe_down_out
+
+// animation
+%animation{
+    animation-duration:1s;
+    animation-timing-function:ease-out;
+}
+
+// fade_in
+.a-fade_in{
+    @extend %animation;
+    animation-name:fade_in;
+}
+@keyframes fade_in {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+// fade_out
+.a-fade_out{
+    @extend %animation;
+    animation-name:fade_in;
+    animation-direction:reverse;
+    animation-fill-mode:forwards;
+}
+
+// swipe_left_in
+.a-swipe_left_in{
+    @extend %animation;
+    animation-name:swipe_left_in;
+}
+@keyframes swipe_left_in {
+    0% {
+        position:relative;
+        left:-370px;
+        opacity:0;
+    }
+    100% {
+        position:relative;
+        left:0px;
+        opacity:1;
+    }
+}
+
+// swipe_left_out
+.a-swipe_left_out{
+    @extend %animation;
+    animation-name:swipe_left_in;
+    animation-direction:reverse;
+    animation-fill-mode:forwards;
+}
+
+// swipe_right_in
+.a-swipe_right_in{
+    @extend %animation;
+    animation-name:swipe_right_in;
+}
+@keyframes swipe_right_in {
+    0% {
+        position:relative;
+        right:-370px;
+        opacity:0;
+    }
+    100% {
+        position:relative;
+        right:0px;
+        opacity:1;
+    }
+}
+
+// swipe_right_out
+.a-swipe_right_out{
+    @extend %animation;
+    animation-name:swipe_right_in;
+    animation-direction:reverse;
+    animation-fill-mode:forwards;
+}
+
+// swipe_down_in
+.a-swipe_down_in{
+    @extend %animation;
+    animation-name:swipe_down_in;
+}
+@keyframes swipe_down_in {
+    0% {
+        position:relative;
+        bottom:-370px;
+        opacity:0;
+    }
+    100% {
+        position:relative;
+        bottom:0px;
+        opacity:1;
+    }
+}
+
+// swipe_down_out
+.a-swipe_down_out{
+    @extend %animation;
+    animation-name:swipe_down_in;
+    animation-direction:reverse;
+    animation-fill-mode:forwards;
+}

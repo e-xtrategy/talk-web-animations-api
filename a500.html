@@ -24,15 +24,17 @@
                 </ul>
             </div>
             <article class="main_article">
-                <button class="pagination_button m-prev">
-                    <span>Precedente</span>
-                </button>
-                <button class="pagination_button m-next">
-                    <span>Successivo</span>
-                </button>
-                <h2 class="main_article__title">Commodore Amiga 500</h2>
+                <form>
+                    <button class="pagination_button m-prev" type="submit" formaction="c128.html">
+                        <span>Precedente</span>
+                    </button>
+                    <button class="pagination_button m-next" type="submit" formaction="a1200.html">
+                        <span>Successivo</span>
+                    </button>
+                </form>
+                <h2 class="main_article__title a-fade_in">Commodore Amiga 500</h2>
                 <div class="main_article__title__row">
-                    <div class="description_box">
+                    <div class="description_box a-swipe_left_in">
                         <p>
                             Il Commodore Amiga 500 è un home computer della <strong>Commodore Business Machines Inc.</strong> basato sulla piattaforma informatica Amiga e commercializzato tra il 1987 e il 1992.
                         </p>
@@ -40,10 +42,10 @@
                             L'Amiga 500 è stato molto popolare in tutto il mondo grazie al costo contenuto, a un vasto parco software in parte ereditato dall'<strong>Amiga 1000</strong> e alle capacità multimediali straordinarie per l'epoca nella sua categoria di computer casalingo. L'Amiga 500 originale si dimostrò il <strong>modello più venduto</strong> della serie Amiga di Commodore.
                         </p>
                     </div>
-                    <figure class="image_box">
+                    <figure class="image_box a-swipe_down_in">
                         <img src="img/image_a500.png" alt="" />
                     </figure>
-                    <div class="details_box">
+                    <div class="details_box a-swipe_right_in">
                         <h3 class="details_box__title">Specifiche tecniche</h3>
                         <table class="details_box__table">
                             <tbody>
@@ -74,6 +76,9 @@
             </article>
         </section>
         <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li><input class="" type="range" name="range" min="0" max="4"></li>
+            </ul>
             <p class="main_footer__text">Web API animation Demo</p>
         </footer>
     </body>

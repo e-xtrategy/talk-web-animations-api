@@ -24,15 +24,17 @@
                 </ul>
             </div>
             <article class="main_article">
-                <button class="pagination_button m-prev">
-                    <span>Precedente</span>
-                </button>
-                <button class="pagination_button m-next">
-                    <span>Successivo</span>
-                </button>
-                <h2 class="main_article__title">Commodore 128</h2>
+                <form>
+                    <button class="pagination_button m-prev" type="submit" formaction="c64.html">
+                        <span>Precedente</span>
+                    </button>
+                    <button class="pagination_button m-next" type="submit" formaction="a500.html">
+                        <span>Successivo</span>
+                    </button>
+                </form>
+                <h2 class="main_article__title a-fade_in">Commodore 128</h2>
                 <div class="main_article__title__row">
-                    <div class="description_box">
+                    <div class="description_box a-swipe_left_in">
                         <p>
                             Il <strong>Commodore 128</strong> era un modello di computer della CBM Commodore Business machines commercializzato nel gennaio del 1985 e sino al 1989. Venne immesso sul mercato tre anni dopo il suo celebre predecessore, il Commodore 64.
                         </p>
@@ -40,10 +42,10 @@
                             Il C128 nacque dopo lo sfortunato tentativo del 1984 di rimpiazzare il VIC-20 e il Commodore 64 con le macchine della serie TED, ossia il Commodore 16 (detto anche C16) e il Plus 4, quest'ultimo destinato all'utenza professionale.
                         </p>
                     </div>
-                    <figure class="image_box">
+                    <figure class="image_box a-swipe_down_in">
                         <img src="img/image_c128.png" alt="" />
                     </figure>
-                    <div class="details_box">
+                    <div class="details_box a-swipe_right_in">
                         <h3 class="details_box__title">Specifiche tecniche</h3>
                         <table class="details_box__table">
                             <tbody>
@@ -74,6 +76,9 @@
             </article>
         </section>
         <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li><input class="" type="range" name="range" min="0" max="4"></li>
+            </ul>
             <p class="main_footer__text">Web API animation Demo</p>
         </footer>
     </body>

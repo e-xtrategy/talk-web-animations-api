@@ -24,15 +24,17 @@
                 </ul>
             </div>
             <article class="main_article">
-                <button class="pagination_button m-prev">
-                    <span>Precedente</span>
-                </button>
-                <button class="pagination_button m-next">
-                    <span>Successivo</span>
-                </button>
-                <h2 class="main_article__title">Commodore 64</h2>
+                <form>
+                    <button class="pagination_button m-prev" type="submit" formaction="index.html">
+                        <span>Precedente</span>
+                    </button>
+                    <button class="pagination_button m-next" type="submit" formaction="c128.html">
+                        <span>Successivo</span>
+                    </button>
+                </form>
+                <h2 class="main_article__title a-fade_in">Commodore 64</h2>
                 <div class="main_article__title__row">
-                    <div class="description_box">
+                    <div class="description_box a-swipe_left_in">
                         <p>
                             Il Commodore 64 è un home computer della <strong>Commodore Business Machines Inc.</strong> commercializzato dal 1982 al 1993.
                         </p>
@@ -40,10 +42,10 @@
                             E' nato come <strong>fratello maggiore del Commodore VIC-20</strong>, con capacità grafiche e sonore superiori, a scapito però della compatibilità software. Evoluzioni invece furono il Commodore 128, il Commodore 128D e il Commodore 65, tutti compatibili a livello software con il Commodore 64. I primi due sono stati commercializzati a partire dal 1985, il terzo è rimasto allo stadio di prototipo, mentre la produzione cessò nel 1992.
                         </p>
                     </div>
-                    <figure class="image_box">
+                    <figure class="image_box a-swipe_down_in">
                         <img src="img/image_c64.png" alt="" />
                     </figure>
-                    <div class="details_box">
+                    <div class="details_box a-swipe_right_in">
                         <h3 class="details_box__title">Specifiche tecniche</h3>
                         <table class="details_box__table">
                             <tbody>
@@ -74,6 +76,9 @@
             </article>
         </section>
         <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li><input class="" type="range" name="range" min="0" max="4"></li>
+            </ul>
             <p class="main_footer__text">Web API animation Demo</p>
         </footer>
     </body>

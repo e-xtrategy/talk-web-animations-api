@@ -24,15 +24,14 @@
                 </ul>
             </div>
             <article class="main_article">
-                <button class="pagination_button m-prev">
-                    <span>Precedente</span>
-                </button>
-                <button class="pagination_button m-next">
-                    <span>Successivo</span>
-                </button>
-                <h2 class="main_article__title">Commodore Vic 20</h2>
+                <form>
+                    <button class="pagination_button m-next" type="submit" formaction="c64.html">
+                        <span>Successivo</span>
+                    </button>
+                </form>
+                <h2 class="main_article__title a-fade_in">Commodore Vic 20</h2>
                 <div class="main_article__title__row">
-                    <div class="description_box">
+                    <div class="description_box a-swipe_left_in">
                         <p>
                             Il <strong>Commodore VIC-20</strong> o <strong>Commodore VIC 20</strong> (in Giappone: Commodore VIC-1001; in Germania: Commodore VC 20) è un home computer della <strong>Commodore Business Machines Inc.</strong> commercializzato dall'ottobre 1980 al gennaio 1985. Fu proposto come computer per la famiglia e per il gioco ed ebbe un grande successo di vendite, subissato solo dal successivo Commodore 64.
                         </p>
@@ -40,10 +39,10 @@
                             L'hardware è basato sul <strong>processore MOS 6502</strong>, con una memoria ROM di circa 20 kB contenente sistema operativo e interprete BASIC, memoria <strong>RAM di 5 kB</strong>, di cui 3,5 kB disponibili per la programmazione in BASIC.
                         </p>
                     </div>
-                    <figure class="image_box">
+                    <figure class="image_box a-swipe_down_in">
                         <img src="img/image_vic20.png" alt="" />
                     </figure>
-                    <div class="details_box">
+                    <div class="details_box a-swipe_right_in">
                         <h3 class="details_box__title">Specifiche tecniche</h3>
                         <table class="details_box__table">
                             <tbody>
@@ -74,6 +73,9 @@
             </article>
         </section>
         <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li><input class="" type="range" name="range" min="0" max="4"></li>
+            </ul>
             <p class="main_footer__text">Web API animation Demo</p>
         </footer>
     </body>
