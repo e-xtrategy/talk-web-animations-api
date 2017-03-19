@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Animations API</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Progress Bar</h1>
+    <button type="button" onclick="setProgress()">Set Progress</button>
+    <input type="number" min="0" max="100" id="progress" placeholder="Insert Progress value..." />
+    <div class="progress-bar-container">
+        <div class="progress-bar" data-animation-duration="1000"></div>
+    </div>
+    <h1>Snackbar</h1>
+    <button type="button" onclick="show()">Show</button>
+    <input type="text" id="message" placeholder="Insert a message..." />
+    <div class="snackbar" data-animation-duration="500" data-hide-timeout="500"></div>
+    <h1>Tabs</h1>
+    <select id="tabs-animation-type">
+        <option value="swipe-left">Swipe Left</option>
+        <option value="swipe-right">Swipe Right</option>
+        <option value="zoom">Zoom</option>
+        <option value="flip">Flip</option>
+        <option value="rotate">Rotate</option>
+    </select>
+    <div class="tabs" data-start-index="0" data-animation-duration="500">
+        <div class="tab">
+            <a class="tablinks">London</a>
+            <a class="tablinks">Paris</a>
+            <a class="tablinks">Tokyo</a>
+        </div>
+        <div class="tabcontent">
+            <h3>London</h3>
+            <a title="By Diliff (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY 2.5 (http://creativecommons.org/licenses/by/2.5)], via Wikimedia Commons"
+                href="https://commons.wikimedia.org/wiki/File%3AClock_Tower_-_Palace_of_Westminster%2C_London_-_May_2007.jpg">
+                <img width="256" alt="Clock Tower - Palace of Westminster, London - May 2007" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Clock_Tower_-_Palace_of_Westminster%2C_London_-_May_2007.jpg/256px-Clock_Tower_-_Palace_of_Westminster%2C_London_-_May_2007.jpg" />
+            </a>
+            <p>Foto by Wikipedia</p>
+        </div>
+
+        <div class="tabcontent">
+            <h3>Paris</h3>
+            <a title="By Tristan Nitot (standblog.org) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5 (http://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons"
+                href="https://commons.wikimedia.org/wiki/File%3ATour_eiffel_at_sunrise_from_the_trocadero.jpg">
+                <img width="256" alt="Tour eiffel at sunrise from the trocadero" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tour_eiffel_at_sunrise_from_the_trocadero.jpg/256px-Tour_eiffel_at_sunrise_from_the_trocadero.jpg" />
+            </a>
+            <p>Foto by Wikipedia</p>
+        </div>
+
+        <div class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+            <a title="By 東京太郎 (自身で撮影) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ATaroTokyo20110213-TokyoTower-01.jpg">
+                <img width="256" alt="TaroTokyo20110213-TokyoTower-01" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/TaroTokyo20110213-TokyoTower-01.jpg/256px-TaroTokyo20110213-TokyoTower-01.jpg"/>
+            </a>
+            <p>Foto by Wikipedia</p>
+        </div>
+    </div>
+    <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations-next.min.js"></script>
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+</body>
+
+</html>
