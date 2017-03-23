@@ -58,6 +58,14 @@ $details_box__table-brd:#E9ECF2;
   }
 }
 
+.float_left{
+    float:left;
+}
+
+.float_right{
+    float:right;
+}
+
 body{
     height:100%;
     overflow:hidden;
@@ -75,6 +83,20 @@ strong{
 form{
     margin:0;
     padding:0;
+}
+
+button{
+    @include border-radius(4px);
+    background-color:$timeline-brd;
+    border:none;
+    color:$neutral-white;
+    font-size:18px;
+    font-weight:normal;
+    font-family:$font-stack-semi-bold;
+    &:hover{
+        cursor:pointer;
+        background-color:red;
+    }
 }
 
 // Layout
@@ -120,17 +142,22 @@ $timeline-height:120px;
     height:$main_footer-height;
     padding:0 10px 0 10px;
     .main_footer__tools{
-        margin:0;
+        margin:0 50px 0 50px;
         padding:0;
         list-style:none;
         text-align:center;
         li{
             display:inline-block;
+            margin-left:10px;
+            margin-right:10px;
+            &.button_type{
+                padding:10px 15px 0 15px;
+            }
         }
     }
     .main_footer__text{
         text-align:center;
-        font-size:16px;
+        font-size:14px;
         color:$neutral-white;
         margin:0;
         padding:0;
@@ -231,11 +258,13 @@ $timeline-height:120px;
 
 .pagination_button{
     border:none;
-    width:48px;
-    height:48px;
+    width:35px;
+    height:35px;
     background-color:transparent;
     background-position:50% 50%;
     background-repeat:no-repeat;
+    background-size:contain;
+    margin-top:15px;
     cursor:pointer;
     &.m-prev{
         background-image:url(../img/arrow_prev.svg);
