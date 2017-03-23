@@ -939,7 +939,7 @@ form {
       padding: 4px;
       vertical-align: top; }
 
-.a-fade_in, .a-fade_out, .a-swipe_left_in, .a-swipe_left_out, .a-swipe_right_in, .a-swipe_right_out, .a-swipe_down_in, .a-swipe_down_out {
+.a-fade_in, .a-fade_out, .a-swipe_left_in, .a-swipe_left_out, .a-swipe_right_in, .a-swipe_right_out, .a-swipe_down_in, .a-swipe_down_out, .a-change_background_color, .a-restore_background_color, .a-change_font_size, .a-restore_font_size, .a-change_top_position, .a-restore_top_position {
   animation-duration: 1s;
   animation-timing-function: ease-out; }
 
@@ -1006,6 +1006,48 @@ form {
   animation-name: swipe_down_in;
   animation-direction: reverse;
   animation-fill-mode: forwards; }
+
+.a-change_background_color {
+  animation-name: change_background_color;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s; }
+
+@keyframes change_background_color {
+  0% {
+    background-color: #E8F1FF; }
+  100% {
+    background-color: #FA5A5A; } }
+.a-restore_background_color {
+  animation-name: change_background_color;
+  animation-direction: reverse; }
+
+.a-change_font_size {
+  animation-name: change_font_size;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s; }
+
+@keyframes change_font_size {
+  0% {
+    font-size: 24px; }
+  100% {
+    font-size: 36px; } }
+.a-restore_font_size {
+  animation-name: change_font_size;
+  animation-direction: reverse; }
+
+.a-change_top_position {
+  animation-name: change_top_position;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s; }
+
+@keyframes change_top_position {
+  0% {
+    top: -25px; }
+  100% {
+    top: -11px; } }
+.a-restore_top_position {
+  animation-name: change_top_position;
+  animation-direction: reverse; }
 
 input[type=range] {
   -webkit-appearance: none;

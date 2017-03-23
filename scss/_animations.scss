@@ -10,6 +10,12 @@
 // - a-swipe_right_out
 // - a-swipe_down_in
 // - a-swipe_down_out
+// - a-change_background_color
+// - a-restore_background_color
+// - a-change_font_size
+// - a-restore_font_size
+// - a-change_top_position
+// - a-restore_top_position
 
 // animation
 %animation{
@@ -115,4 +121,73 @@
     animation-name:swipe_down_in;
     animation-direction:reverse;
     animation-fill-mode:forwards;
+}
+
+// a-change_background_color
+.a-change_background_color{
+    @extend %animation;
+    animation-name:change_background_color;
+    animation-fill-mode:forwards;
+    animation-duration:0.5s;
+}
+@keyframes change_background_color {
+    0% {
+        background-color:$timeline-year-bg;
+    }
+    100% {
+        background-color:$timeline-brd;
+    }
+}
+
+// a-restore_background_color
+.a-restore_background_color{
+    @extend %animation;
+    animation-name:change_background_color;
+    animation-direction:reverse;
+}
+
+// a-change_font_size
+.a-change_font_size{
+    @extend %animation;
+    animation-name:change_font_size;
+    animation-fill-mode:forwards;
+    animation-duration:0.5s;
+}
+@keyframes change_font_size {
+    0% {
+        font-size:24px;
+    }
+    100% {
+        font-size:36px;
+    }
+}
+
+// a-restore_font_size
+.a-restore_font_size{
+    @extend %animation;
+    animation-name:change_font_size;
+    animation-direction:reverse;
+}
+
+// a-change_top_position
+.a-change_top_position{
+    @extend %animation;
+    animation-name:change_top_position;
+    animation-fill-mode:forwards;
+    animation-duration:0.5s;
+}
+@keyframes change_top_position {
+    0% {
+        top:-25px;
+    }
+    100% {
+        top:-11px;
+    }
+}
+
+// a-restore_top_position
+.a-restore_top_position{
+    @extend %animation;
+    animation-name:change_top_position;
+    animation-direction:reverse;
 }
