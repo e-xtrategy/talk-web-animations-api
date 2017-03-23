@@ -1,0 +1,239 @@
+// Web Animation API Examples Main SCSS
+
+// Content:
+// - Mixin
+// - Mediaquery
+// - Operations
+// - Partials
+
+
+
+// Mixin
+@mixin box-sizing($valuesizing){
+    box-sizing:$valuesizing;
+    -moz-box-sizing:$valuesizing;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin border-radius-left($radius) {
+    -webkit-border-bottom-left-radius:$radius;
+    -webkit-border-top-left-radius:$radius;
+    -moz-border-radius-bottomleft:$radius;
+    -moz-border-radius-topleft:$radius;
+    -o-border-radius-bottomleft:$radius;
+    -o-border-radius-topleft:$radius;
+    border-bottom-left-radius:$radius;
+    border-top-left-radius:$radius;
+}
+
+@mixin border-radius-right($radius) {
+    -webkit-border-bottom-right-radius:$radius;
+    -webkit-border-top-right-radius:$radius;
+    -moz-border-radius-bottomright:$radius;
+    -moz-border-radius-topright:$radius;
+    -o-border-radius-bottomright:$radius;
+    -o-border-radius-topright:$radius;
+    border-bottom-right-radius:$radius;
+    border-top-right-radius:$radius;
+}
+
+@mixin border-radius-top($radius) {
+    -webkit-border-top-right-radius:$radius;
+    -webkit-border-top-left-radius:$radius;
+    -moz-border-radius-topright:$radius;
+    -moz-border-radius-topleft:$radius;
+    -o-border-radius-topright:$radius;
+    -o-border-radius-topleft:$radius;
+    border-top-right-radius:$radius;
+    border-top-left-radius:$radius;
+}
+
+@mixin border-radius-bottom($radius) {
+    -webkit-border-bottom-right-radius:$radius;
+    -webkit-border-bottom-left-radius:$radius;
+    -moz-border-radius-bottomright:$radius;
+    -moz-border-radius-bottomleft:$radius;
+    -o-border-radius-bottomright:$radius;
+    -o-border-radius-bottomleft:$radius;
+    border-bottom-right-radius:$radius;
+    border-bottom-left-radius:$radius;
+}
+
+@mixin box-shadow($valueshadow){
+    -moz-box-shadow: $valueshadow;
+    -webkit-box-shadow: $valueshadow;
+    box-shadow: $valueshadow;
+}
+
+@mixin user-select($valueuserselect){
+    -webkit-user-select: $valueuserselect;
+    -moz-user-select: $valueuserselect;
+    -ms-user-select: $valueuserselect;
+    user-select: $valueuserselect;
+}
+
+@mixin appearance($valueappearance){
+    -webkit-appearance:$valueappearance;
+    -moz-appearance:$valueappearance;
+    appearance:$valueappearance;
+}
+
+@mixin transition($valuetransition){
+    transition:$valuetransition;
+    -webkit-transition:$valuetransition;
+    -o-transition:$valuetransition;
+    -moz-transition:$valuetransition;
+}
+
+@mixin transition-delay($valuetransition-delay){
+    transition-delay: $valuetransition-delay;
+    -webkit-transition-delay: $valuetransition-delay;
+}
+
+@mixin transition-timing($valuetransition-timing){
+    transition-timing-function: $valuetransition-timing;
+    -webkit-transition-timing-function: $valuetransition-timing;
+    -moz-transition-timing-function:$valuetransition-timing;
+    -o-transition-timing-function:$valuetransition-timing;
+}
+
+@mixin transition-duration($valuetransition-duration){
+    transition-timing-function: $valuetransition-duration;
+    -webkit-transition-timing-function: $valuetransition-duration;
+    -moz-transition-timing-function:$valuetransition-duration;
+    -o-transition-timing-function:$valuetransition-duration;
+}
+
+@mixin transform-scale($valuetransform){
+    -ms-transform: scale($valuetransform);
+    -webkit-transform: scale($valuetransform);
+    -moz-transform: scale($valuetransform);
+    -o-transform: scale($valuetransform);
+    transform: scale($valuetransform);
+}
+
+@mixin transform-traslate($valuetransform-traslate, $value2transform-traslate){
+    -ms-transform:translate($valuetransform-traslate, $value2transform-traslate);
+    -webkit-transform:translate($valuetransform-traslate, $value2transform-traslate);
+    -moz-transform:translate($valuetransform-traslate, $value2transform-traslate);
+    -o-transform:translate($valuetransform-traslate, $value2transform-traslate);
+    transform:translate($valuetransform-traslate, $value2transform-traslate);
+}
+
+@mixin transform-rotate($valuetransform-rotate){
+    -ms-transform: rotate($valuetransform-rotate);
+    -webkit-transform: rotate($valuetransform-rotate);
+    -moz-transform: rotate($valuetransform-rotate);
+    -o-transform: rotate($valuetransform-rotate);
+    transform: rotate($valuetransform-rotate);
+}
+
+@mixin animation-name($valueanimation-name){
+    -webkit-animation-name:$valueanimation-name;
+    -moz-animation-name:$valueanimation-name;
+    animation-name:$valueanimation-name;
+}
+
+@mixin animation-duration($valueanimation-duration){
+    -webkit-animation-duration:$valueanimation-duration;
+    -moz-animation-duration:$valueanimation-duration;
+    animation-duration:$valueanimation-duration;
+}
+
+@mixin animation-fill-mode($valueanimation-fill-mode){
+    -webkit-animation-fill-mode:$valueanimation-fill-mode;
+    -moz-animation-fill-mode:$valueanimation-fill-mode;
+    animation-fill-mode:$valueanimation-fill-mode;
+}
+
+
+
+// Mediaquery & Browserquery
+$s-smartphone-width:320px;
+$m-smartphone-width:480px;
+$s-tablet-width:640px;
+$m-tablet-width:768px; /* 46.8 em approach */
+$s-desktop-width:1024px; /* 70 em approach */
+
+@mixin small-smartphone {
+  @media (min-width: #{$s-smartphone-width}) and (max-width: #{$m-smartphone-width - 1px}) {
+    @content;
+  }
+}
+@mixin smartphone {
+  @media (min-width: #{$s-smartphone-width}) and (max-width: #{$s-tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$s-smartphone-width}) and (max-width: #{$m-tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$m-tablet-width}) and (max-width: #{$s-desktop-width}) {
+    @content;
+  }
+}
+@mixin huge-desktop {
+  @media (min-width: #{$s-desktop-width + 1px}) {
+    @content;
+  }
+}
+@mixin ie11-10 {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+
+
+$html-font-size:14px;
+
+body{
+  font-size:$html-font-size;
+  @include desktop {
+    font-size:$html-font-size;
+  }
+  @include tablet {
+    font-size:$html-font-size;
+  }
+  @include smartphone {
+    font-size:$html-font-size;
+  }
+  @include small-smartphone {
+    font-size:$html-font-size;
+  }
+  @include ie11-10 {
+    //background-color:lightgoldenrodyellow;
+  }
+}
+
+
+
+// Operations
+@for $i from 1 through 50 {
+  .m-size#{$i * 10} { width: 10px * $i; }
+}
+@for $i from 1 through 100 {
+  .m-size_fluid#{$i} { width: 1% * $i; }
+}
+@for $i from 1 through 50 {
+  .m-size_height#{$i * 10} { height: 10px * $i; }
+}
+/* Font Sizing */
+@for $i from 1 through 30 {
+  .m-font_size#{$i} { font-size: 1px * $i; }
+}
+
+
+
+// Partials
+@import '_style';
