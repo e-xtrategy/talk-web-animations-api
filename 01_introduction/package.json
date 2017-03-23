@@ -1,0 +1,27 @@
+{
+  "name": "web-animation-api-tutorial",
+  "version": "0.0.1",
+  "description": "Web Animations API Tutorial",
+  "main": "index.js",
+  "repository": "git@github.com:francesco-strazzullo/web-animation-api-tutorial.git",
+  "author": "Francesco Strazzullo <francesco.strazzullo86@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "6.5.0",
+    "standard": "^8.6.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "standard": {
+    "globals": [
+      "KeyframeEffect",
+      "Animation"
+    ]
+  }
+}
