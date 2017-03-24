@@ -1,62 +1,53 @@
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Web Animations API</title>
-    <style>
-        .square {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-        }
-        
-        .top-left {
-            top: 0;
-            left: 0;
-            background-color: red;
-        }
-        
-        .top-right {
-            top: 0;
-            right: 0;
-            background-color: blue;
-        }
-        
-        .bottom-left {
-            bottom: 0;
-            left: 0;
-            background-color: green;
-        }
-        
-        .bottom-right {
-            bottom: 0;
-            right: 0;
-            background-color: orange;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="square top-left"></div>
-    <div class="square top-right"></div>
-    <div class="square bottom-left"></div>
-    <div class="square bottom-right"></div>
-    <div style="text-align: center">
-        <button onclick="group()">Group</button>
-        <button onclick="sequence()">Sequence</button>
-        <button onclick="mix()">Mix</button>
-    </div>
-    <div style="text-align: center">
-        <button onclick="play()">Play</button>
-        <button onclick="pause()">Pause</button>
-        <button onclick="faster()">Faster</button>
-        <button onclick="slower()">Slower</button>
-    </div>
-    <div style="text-align: center">
-        <input id="range" type="range" value="0" min="0" max="4000">
-    </div>
-    <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations-next.min.js"></script>
-    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
-</body>
-
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Web Animation API Examples</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="http://www.e-xtrategy.net/wp-content/themes/ex2011/favicon.png">
+        <link rel="stylesheet" href="css/main.css" media="all">
+        <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations-next.min.js"></script>
+    </head>
+    <body>
+        <header class="main_header">
+            <h1 class="main_header__title">Groups Sequences</h1>
+        </header>
+        <section class="main_content">
+            <div class="square top-left"></div>
+            <div class="square top-right"></div>
+            <div class="square bottom-left"></div>
+            <div class="square bottom-right"></div>
+        </section>
+        <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li class="button_type">
+                    <button onclick="play()">Play</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="pause()">Pause</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="faster()">Faster</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="slower()">Slower</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="group()">Group</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="sequence()">Sequence</button>
+                </li>
+                <li class="button_type">
+                    <button onclick="mix()">Mix</button>
+                </li>
+                <li>
+                    <input id="range" type="range" value="0" min="0" max="4000">
+                </li>
+            </ul>
+            <p class="main_footer__text">Web API animation Demo</p>
+        </footer>
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+    </body>
 </html>

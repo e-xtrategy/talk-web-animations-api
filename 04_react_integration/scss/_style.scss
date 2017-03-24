@@ -1,0 +1,307 @@
+// Web Animation API Examples SCSS
+
+// Content:
+// - Typography
+// - Colors
+// - Reset
+// - Layout
+
+// font-face
+@font-face {
+  font-family: 'Titillium-Web-Regular';
+  src: url('../font/TitilliumWeb-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../font/TitilliumWeb-Regular.ttf')  format('truetype'),
+       url('../font/TitilliumWeb-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Titillium-Web-Semi-Bold';
+  src: url('../font/TitilliumWeb-SemiBold.eot?#iefix') format('embedded-opentype'),
+       url('../font/TitilliumWeb-SemiBold.ttf')  format('truetype'),
+       url('../font/TitilliumWeb-SemiBold.woff') format('woff');
+}
+
+$font-stack-regular: 'Titillium-Web-Regular', Helvetica, Arial, sans-serif;
+$font-stack-semi-bold: 'Titillium-Web-Semi-Bold', Helvetica, Arial, sans-serif;
+
+// Colors
+$neutral-white:#ffffff;
+$text:#393939;
+$shadow1:rgba(172, 172, 172, 0.5);
+$main_article__title-brd:#E9ECF2;
+$timeline-brd:#FA5A5A;
+$timeline-year-bg:#E8F1FF;
+$details_box__table-brd:#E9ECF2;
+
+// Reset
+*{
+    box-sizing:border-box;
+    outline:none;
+}
+
+*{
+    @include transition(.25s);
+    &:hover,
+    &:active {
+    text-decoration:none;
+    }
+}
+
+%m-clear_fix{
+  &:before,
+  &:after {
+    content:"";
+    display:block;
+    overflow:hidden;
+  }
+  &:after {
+    clear:both;
+  }
+}
+
+.float_left{
+    float:left;
+}
+
+.float_right{
+    float:right;
+}
+
+body{
+    height:100%;
+    overflow:hidden;
+    font-family:$font-stack-regular;
+    background-color:$neutral-white;
+    margin:0;
+    padding:0;
+    color:$text;
+}
+
+strong{
+    font-family:$font-stack-semi-bold;
+}
+
+form{
+    margin:0;
+    padding:0;
+}
+
+button{
+    @include border-radius(4px);
+    background-color:$timeline-brd;
+    border:none;
+    color:$neutral-white;
+    font-size:18px;
+    font-weight:normal;
+    font-family:$font-stack-semi-bold;
+    &:hover{
+        cursor:pointer;
+        background-color:red;
+    }
+}
+
+input[type=text],
+input[type=number]{
+    padding:5px;
+    font-size:18px;
+    min-width:230px;
+}
+
+select{
+    padding:5px;
+    font-size:18px;
+    min-width:230px;
+    margin-bottom:10px;
+}
+
+$main_header-height:70px;
+$main_footer-height:80px;
+$timeline-height:120px;
+.main_header{
+    @include box-shadow(0 4px 3px 0 $shadow1);
+    @include border-radius-bottom(8px);
+    background: rgb(137,160,202);
+    background: -moz-linear-gradient(top, rgba(137,160,202,1) 0%, rgba(88,110,150,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(137,160,202,1) 0%,rgba(88,110,150,1) 100%);
+    background: linear-gradient(to bottom, rgba(137,160,202,1) 0%,rgba(88,110,150,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#89a0ca', endColorstr='#586e96',GradientType=0 );
+    position:absolute;
+    top:0;
+    left:20px;
+    right:20px;
+    z-index:1;
+    height:$main_header-height;
+    .main_header__title{
+        margin:8px 0 0 0;
+        padding:0;
+        text-align:center;
+        color:$neutral-white;
+        font-size:36px;
+        font-weight:normal;
+        letter-spacing:2px;
+    }
+}
+
+.main_footer{
+    @include box-shadow(0 -4px 3px 0 $shadow1);
+    background: rgb(218,225,239);
+    background: -moz-linear-gradient(top, rgba(218,225,239,1) 0%, rgba(179,189,208,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(218,225,239,1) 0%,rgba(179,189,208,1) 100%);
+    background: linear-gradient(to bottom, rgba(218,225,239,1) 0%,rgba(179,189,208,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dae1ef', endColorstr='#b3bdd0',GradientType=0 );
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:$main_footer-height;
+    padding:10px 10px 0 10px;
+    .main_footer__tools{
+        margin:0 50px 5px 50px;
+        padding:0;
+        list-style:none;
+        text-align:center;
+        li{
+            display:inline-block;
+            margin-left:3px;
+            margin-right:3px;
+            &.button_type{
+                padding:5px 5px 0 5px;
+                button{
+                    display:inline-block;
+                    width:100px;
+                }
+            }
+        }
+    }
+    .main_footer__text{
+        text-align:center;
+        font-size:14px;
+        color:$neutral-white;
+        margin:0;
+        padding:0;
+    }
+}
+
+.main_content{
+    @include box-shadow(0 0 3px 0 $shadow1);
+    position:absolute;
+    top:$main_header-height;
+    bottom:$main_footer-height;
+    left:60px;
+    right:60px;
+    background-color:$neutral-white;
+    overflow-y:auto;
+}
+
+.main_article{
+    position:absolute;
+    width:100%;
+    top:$timeline-height;
+    bottom:0;
+    overflow-y:auto;
+    padding-left:50px;
+    padding-right:50px;
+    .main_article__title{
+        font-size:40px;
+        text-align:center;
+        font-weight:normal;
+        margin:0 0 25px 0;
+        padding:0;
+        border-bottom:1px solid $main_article__title-brd;
+    }
+    .main_article__title__row{
+        @extend %m-clear_fix;
+    }
+}
+
+.block_row{
+    @extend %m-clear_fix;
+    h2{
+        margin:0;
+        padding:0;
+        font-size:20px;
+    }
+}
+
+.left_block{
+    width:50%;
+    float:left;
+    padding:15px;
+}
+
+.right_block{
+    width:50%;
+    float:right;
+    padding:15px;
+}
+
+.box_example{
+    margin-bottom:36px;
+}
+
+.button_activator{
+    width:150px;
+}
+
+.snackbar {
+    @include border-radius(6px);
+    opacity:0;
+    min-width:250px;
+    margin-left:-125px;
+    background-color:#333;
+    color:#fff;
+    text-align:center;
+    font-size:16px;
+    padding:15px;
+    position:fixed;
+    z-index:1;
+    left:50%;
+    bottom:-30px;
+}
+
+.progress-bar-container {
+    width:100%;
+    background-color:#B7C0D3;
+    margin-top:10px;
+}
+.progress-bar {
+    width: 0%;
+    height: 30px;
+    background-color:#FA5A5A;
+}
+
+.tabs {
+    position: relative;
+    width: 100%;
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #D9E0EE;
+        height: 50px;
+        cursor:pointer;
+        span{
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 12px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            &:hover{
+                background-color:#B4BED0;
+            }
+            &:focus,
+            &.active{
+                background-color:#889FC9;
+            }
+        }
+    }
+}
+
+.tabcontent {
+    opacity:0;
+    position:absolute;
+    top:50px;
+    width:100%;
+    img{
+        width:30%;
+    }
+}
