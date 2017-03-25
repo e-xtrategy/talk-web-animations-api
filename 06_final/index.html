@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Web Animation API Examples</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="http://www.extrategy.net/themes/custom/extrategy/favicon.ico">
+        <link rel="stylesheet" href="css/main.css" media="all">
+        <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations-next.min.js"></script>
+    </head>
+    <body>
+        <div class="full_screen_loading a-full_screen_loading" style="display:none;"><span>Loading</span></div>
+        <header class="main_header">
+            <h1 class="main_header__title">Old Computer Timeline</h1>
+        </header>
+        <section class="main_content">
+            <div class="timeline">
+                <ul class="timeline__list">
+                    <li class="timeline__list__item m-active"><em></em><span>1980</span></li>
+                    <li class="timeline__list__item"><em></em><span>1982</span></li>
+                    <li class="timeline__list__item"><em></em><span>1985</span></li>
+                    <li class="timeline__list__item"><em></em><span>1987</span></li>
+                    <li class="timeline__list__item"><em></em><span>1990</span></li>
+                </ul>
+            </div>
+            <article class="main_article">
+                <form>
+                    <button class="pagination_button m-next" type="submit" formaction="c64.html">
+                        <span>Successivo</span>
+                    </button>
+                </form>
+                <h2 class="main_article__title a-fade_in">Commodore Vic 20</h2>
+                <div class="main_article__title__row">
+                    <div class="description_box a-swipe_left_in">
+                        <p>
+                            Il <strong>Commodore VIC-20</strong> o <strong>Commodore VIC 20</strong> (in Giappone: Commodore VIC-1001; in Germania: Commodore VC 20) è un home computer della <strong>Commodore Business Machines Inc.</strong> commercializzato dall'ottobre 1980 al gennaio 1985. Fu proposto come computer per la famiglia e per il gioco ed ebbe un grande successo di vendite, subissato solo dal successivo Commodore 64.
+                        </p>
+                        <p>
+                            L'hardware è basato sul <strong>processore MOS 6502</strong>, con una memoria ROM di circa 20 kB contenente sistema operativo e interprete BASIC, memoria <strong>RAM di 5 kB</strong>, di cui 3,5 kB disponibili per la programmazione in BASIC.
+                        </p>
+                    </div>
+                    <figure class="image_box a-swipe_down_in">
+                        <img src="img/image_vic20.png" alt="" />
+                    </figure>
+                    <div class="details_box a-swipe_right_in">
+                        <h3 class="details_box__title">Specifiche tecniche</h3>
+                        <table class="details_box__table">
+                            <tbody>
+                                <tr>
+                                    <td>CPU</td>
+                                    <td>MOS 6502<br />1 MHz</td>
+                                </tr>
+                                <tr>
+                                    <td>RAM</td>
+                                    <td>5 KB</td>
+                                </tr>
+                                <tr>
+                                    <td>ROM</td>
+                                    <td>20 KB</td>
+                                </tr>
+                                <tr>
+                                    <td>AUDIO</td>
+                                    <td>MOS VIC 1 <br />4 canali</td>
+                                </tr>
+                                <tr>
+                                    <td>VIDEO</td>
+                                    <td>MOS VIC 1 <br />22x23 caratteri <br/> 176x184 px</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <div>
+                </div>
+            </article>
+        </section>
+        <footer class="main_footer">
+            <ul class="main_footer__tools">
+                <li class="button_type">
+                    <button type="button">
+                        <span>Bottone generico</span>
+                    </button>
+                </li>
+                <li>
+                    <input class="" type="range" name="range" min="0" max="4">
+                </li>
+                <li class="button_type">
+                    <button type="button">
+                        <span>Bottone generico</span>
+                    </button>
+                </li>
+            </ul>
+            <p class="main_footer__text">Web API animations Demo</p>
+        </footer>
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+    </body>
+</html>
