@@ -3,7 +3,8 @@ const DURATION = 100
 
 const TIMING = {
   duration: DURATION,
-  fill: 'forwards'
+  fill: 'forwards',
+  ease: 'ease-out'
 }
 
 const toDeactivateKeyframes = [
