@@ -173,7 +173,10 @@
 	    titles: titles,
 	    descriptionBoxes: descriptionBoxes,
 	    imageBoxes: imageBoxes,
-	    detailsBoxes: detailsBoxes
+	    detailsBoxes: detailsBoxes,
+	    onFinish: function onFinish() {
+	      activeIndex = timeLineItems.length - 1;
+	    }
 	  });
 
 	  completeAnimation.play();
