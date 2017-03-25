@@ -49,16 +49,6 @@ const createActivateEffects = toActivate => {
   return new GroupEffect(effects)
 }
 
-export const activate = toActivate => {
-  const group = createActivateEffects(toActivate)
-
-  const animation = new Animation(group, document.timeline)
-
-  animation.play()
-
-  return animation
-}
-
 const createDeactivateEffects = toDeactivate => {
   const toDeactivateSpan = toDeactivate.querySelector('span')
   const toDeactivateEm = toDeactivate.querySelector('em')
@@ -72,6 +62,16 @@ const createDeactivateEffects = toDeactivate => {
   return new GroupEffect(effects)
 }
 
+export const activate = toActivate => {
+  const group = createActivateEffects(toActivate)
+
+  const animation = new Animation(group, document.timeline)
+
+  animation.play()
+
+  return animation
+}
+
 export const deactivate = toDeactivate => {
   const group = createDeactivateEffects(toDeactivate)
 
@@ -83,7 +83,6 @@ export const deactivate = toDeactivate => {
 }
 
 export const createChangeIndexAnimation = (toActivate, toDeactivate) => {
-
   const effects = [
     createDeactivateEffects(toDeactivate),
     createActivateEffects(toActivate)
