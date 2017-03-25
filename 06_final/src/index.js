@@ -28,6 +28,10 @@ const goTo = newIndex => {
       toActivate: timeLineItems[newIndex],
       toDeactivate: timeLineItems[activeIndex]
     }),
+    ...createTitleEffects({
+      toFadeIn: titles[newIndex],
+      toFadeOut: titles[activeIndex]
+    }),
     ...createBodyEffects({
       inDescriptionBox: descriptionBoxes[newIndex],
       inImageBox: imageBoxes[newIndex],
@@ -35,10 +39,6 @@ const goTo = newIndex => {
       outDescriptionBox: descriptionBoxes[activeIndex],
       outImageBox: imageBoxes[activeIndex],
       outDetailsBox: detailsBoxes[activeIndex]
-    }),
-    ...createTitleEffects({
-      toFadeIn: titles[newIndex],
-      toFadeOut: titles[activeIndex]
     })
   ]
 
@@ -90,6 +90,10 @@ timeLineItems.forEach((node, index) => {
         ...createTimelineEffects({
           toDeactivate: timeLineItems[activeIndex]
         }),
+        ...createTitleEffects({
+          toFadeIn: titles[index],
+          toFadeOut: titles[activeIndex]
+        }),
         ...createBodyEffects({
           inDescriptionBox: descriptionBoxes[index],
           inImageBox: imageBoxes[index],
@@ -97,10 +101,6 @@ timeLineItems.forEach((node, index) => {
           outDescriptionBox: descriptionBoxes[activeIndex],
           outImageBox: imageBoxes[activeIndex],
           outDetailsBox: detailsBoxes[activeIndex]
-        }),
-        ...createTitleEffects({
-          toFadeIn: titles[index],
-          toFadeOut: titles[activeIndex]
         })
       ]
 
@@ -114,13 +114,13 @@ const init = () => {
     ...createTimelineEffects({
       toActivate: timeLineItems[0]
     }),
+    ...createTitleEffects({
+      toFadeIn: titles[0]
+    }),
     ...createBodyEffects({
       inDescriptionBox: descriptionBoxes[0],
       inImageBox: imageBoxes[0],
       inDetailsBox: detailsBoxes[0]
-    }),
-    ...createTitleEffects({
-      toFadeIn: titles[0]
     })
   ]
 
