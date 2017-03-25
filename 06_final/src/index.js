@@ -116,7 +116,10 @@ document.querySelector('[data-start-sequece]').addEventListener('click', () => {
     titles,
     descriptionBoxes,
     imageBoxes,
-    detailsBoxes
+    detailsBoxes,
+    onFinish: () => {
+      activeIndex = timeLineItems.length - 1
+    }
   })
 
   completeAnimation.play()
