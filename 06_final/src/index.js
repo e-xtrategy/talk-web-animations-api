@@ -1,7 +1,11 @@
+import { createChangeIndexAnimation } from './timeline'
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
+
 let index = 0
 
 const goTo = newIndex => {
+  const animation = createChangeIndexAnimation(timeLineItems, index, newIndex)
+  animation.play()
   index = newIndex
 }
 
