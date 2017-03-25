@@ -1,9 +1,11 @@
 import { createChangeIndexAnimation, activate, deactivate } from './timeline'
 import { swipeIn, change } from './body'
+import { fadeIn, change as changeTitle } from './title'
 
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
 const descriptionBoxes = document.querySelectorAll('.description_box')
 const imageBoxes = document.querySelectorAll('.image_box')
+const titles = document.querySelectorAll('.main_article__title')
 
 let activeIndex = 0
 
@@ -18,6 +20,10 @@ const goTo = newIndex => {
         outDescriptionBox: descriptionBoxes[activeIndex],
         outImageBox: imageBoxes[activeIndex],
         onFinish: () => {
+          changeTitle({
+            toFadeIn: titles[newIndex],
+            toFadeOut: titles[activeIndex]
+          })
           activeIndex = newIndex
         }
       })
@@ -75,5 +81,9 @@ activate({
 swipeIn({
   descriptionBox: descriptionBoxes[0],
   imageBox: imageBoxes[0]
+})
+
+fadeIn({
+  toFadeIn: titles[0]
 })
 

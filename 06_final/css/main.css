@@ -725,7 +725,9 @@ body {
     text-decoration: none; }
 
 .main_article__title__row {
-  position: relative;
+  position: absolute;
+  width: 100%;
+  top: 61px;
 }
 
 .main_article .main_article__title__row:before, .main_article .main_article__title__row:after {
@@ -870,12 +872,20 @@ button {
   padding-left: 50px;
   padding-right: 50px; }
   .main_article .main_article__title {
+    display: block;
     font-size: 40px;
     text-align: center;
     font-weight: normal;
-    margin: 0 0 25px 0;
+    margin: 0 25% 25px 25%;
     padding: 0;
-    border-bottom: 1px solid #E9ECF2; }
+    border-bottom: 1px solid #E9ECF2;
+    position: absolute;
+    width: 50%;
+    height: 61px;
+    top: 0;
+    opacity: 0;
+    padding-left: 50px;
+    padding-right: 50px; }
 
 .timeline {
   position: absolute;
