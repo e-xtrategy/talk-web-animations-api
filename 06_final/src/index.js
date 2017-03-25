@@ -1,8 +1,8 @@
 import { createChangeIndexAnimation, activate, deactivate } from './timeline'
-import { swipeOut, swipeIn } from './body'
+import { swipeIn, change } from './body'
 
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
-const descriptionBox = document.querySelector('.description_box')
+const descriptionBoxes = document.querySelectorAll('.description_box')
 
 let activeIndex = 0
 
@@ -11,15 +11,11 @@ const goTo = newIndex => {
     toActivate: timeLineItems[newIndex],
     toDeactivate: timeLineItems[activeIndex],
     onFinish: () => {
-      swipeOut({
-        descriptionBox,
+      change({
+        inDescriptionBox: descriptionBoxes[newIndex],
+        outDescriptionBox: descriptionBoxes[activeIndex],
         onFinish: () => {
-          swipeIn({
-            descriptionBox,
-            onFinish: () => {
-              activeIndex = newIndex
-            }
-          })
+          activeIndex = newIndex
         }
       })
     }
@@ -71,5 +67,9 @@ timeLineItems.forEach((node, index) => {
 
 activate({
   toActivate: timeLineItems[0]
+})
+
+swipeIn({
+  descriptionBox: descriptionBoxes[0]
 })
 

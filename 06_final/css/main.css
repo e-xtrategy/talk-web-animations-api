@@ -724,6 +724,10 @@ body {
   *:hover, *:active {
     text-decoration: none; }
 
+.main_article__title__row {
+  position: relative;
+}
+
 .main_article .main_article__title__row:before, .main_article .main_article__title__row:after {
   content: "";
   display: block;
@@ -938,7 +942,11 @@ button {
 
 .description_box {
   width: 30%;
-  float: left; }
+  float: left; 
+  position: absolute;
+  left: -370px;
+  opacity: 0;
+}
 
 .image_box {
   width: 40%;
@@ -984,26 +992,6 @@ button {
   animation-name: fade_in;
   animation-direction: reverse;
   animation-fill-mode: forwards; }
-
-.a-swipe_left_in {
-  animation-name: swipe_left_in; }
-
-@keyframes swipe_left_in {
-  0% {
-    position: relative;
-    left: -370px;
-    opacity: 0; }
-  100% {
-    position: relative;
-    left: 0px;
-    opacity: 1; } }
-.a-swipe_left_out {
-  animation-name: swipe_left_in;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; }
-
-.a-swipe_right_in {
-  animation-name: swipe_right_in; }
 
 @keyframes swipe_right_in {
   0% {
