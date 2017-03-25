@@ -1,6 +1,7 @@
 import createTimelineEffects from './timeline'
 import createBodyEffects from './body'
 import createTitleEffects from './title'
+import completeSequenceAnimation from './completeSequence'
 
 const NOOP = () => {}
 
@@ -21,6 +22,7 @@ const playSequence = (sequence, cb = NOOP) => {
 }
 
 let activeIndex = 0
+let completeAnimation
 
 const goTo = newIndex => {
   const sequence = [
@@ -108,6 +110,30 @@ timeLineItems.forEach((node, index) => {
     }
   }, false)
 })
+document.querySelector('[data-start-sequece]').addEventListener('click', () => {
+  completeAnimation = completeSequenceAnimation({
+    timeLineItems,
+    titles,
+    descriptionBoxes,
+    imageBoxes,
+    detailsBoxes
+  })
+
+  completeAnimation.play()
+}, false)
+
+document.querySelector('[data-pause-sequece]').addEventListener('click', () => {
+  if (completeAnimation) {
+    completeAnimation.pause()
+  }
+}, false)
+
+document.querySelector('[data-flow-control]').addEventListener('input', (event) => {
+  if (completeAnimation && completeAnimation.playState === 'paused') {
+    completeAnimation.currentTime = event.target.value
+  }
+}, false)
+
 
 const init = () => {
   const sequence = [
