@@ -8,12 +8,15 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --port 8086",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "node publish"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "6.5.0",
+    "gh-pages": "^0.12.0",
     "standard": "^8.6.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
