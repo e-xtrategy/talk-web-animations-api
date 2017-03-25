@@ -5,8 +5,7 @@ const timeLineItems = document.querySelectorAll('.timeline__list__item')
 let activeIndex = 0
 
 const goTo = newIndex => {
-  const animation = createChangeIndexAnimation(timeLineItems[newIndex], timeLineItems[activeIndex])
-  animation.play()
+  createChangeIndexAnimation(timeLineItems[newIndex], timeLineItems[activeIndex])
   activeIndex = newIndex
 }
 
@@ -27,17 +26,17 @@ document.querySelector('[data-previous]').addEventListener('click', previous, fa
 timeLineItems.forEach((node, index) => {
   node.addEventListener('mouseenter', () => {
     if (index !== activeIndex) {
-      activate(node).play()
+      activate(node)
     }
   }, false)
   node.addEventListener('mouseleave', () => {
     if (index !== activeIndex) {
-      deactivate(node).play()
+      deactivate(node)
     }
   }, false)
   node.addEventListener('click', () => {
     if (index !== activeIndex) {
-      deactivate(timeLineItems[activeIndex]).play()
+      deactivate(timeLineItems[activeIndex])
       activeIndex = index
     }
   }, false)

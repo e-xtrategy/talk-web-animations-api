@@ -54,6 +54,8 @@ export const activate = toActivate => {
 
   const animation = new Animation(group, document.timeline)
 
+  animation.play()
+
   return animation
 }
 
@@ -75,6 +77,8 @@ export const deactivate = toDeactivate => {
 
   const animation = new Animation(group, document.timeline)
 
+  animation.play()
+
   return animation
 }
 
@@ -88,6 +92,8 @@ export const createChangeIndexAnimation = (toActivate, toDeactivate) => {
   const group = new SequenceEffect(effects)
 
   const animation = new Animation(group, document.timeline)
+
+  animation.play()
 
   return animation
 }

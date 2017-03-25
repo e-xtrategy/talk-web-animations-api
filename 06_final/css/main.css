@@ -908,13 +908,9 @@ button {
       margin: auto;
       font-size: 24px;
       cursor: pointer; }
-    .timeline .timeline__list__item.m-active {
-      top: -11px; }
       .timeline .timeline__list__item.m-active em {
-        background-color: #FA5A5A;
         cursor: default; }
       .timeline .timeline__list__item.m-active span {
-        font-size: 36px;
         cursor: default; }
 
 .pagination_button {
