@@ -33,29 +33,25 @@ const imageBoxSwipeInKeyframes = [
 
 const imageBoxSwipeOutKeyframes = [...imageBoxSwipeInKeyframes].reverse()
 
-export const swipeOut = ({descriptionBox, imageBox, rightBox, onFinish = NOOP}) => {
-  const effects = [
-    new KeyframeEffect(descriptionBox, descriptionBoxSwipeOutKeyframes, TIMING),
-    new KeyframeEffect(imageBox, imageBoxSwipeOutKeyframes, TIMING)
-  ]
-
-  const sequence = new SequenceEffect(effects)
-
-  const animation = new Animation(sequence, document.timeline)
-
-  animation.onfinish = () => {
-    onFinish()
+const detailsBoxSwipeInKeyframes = [
+  {
+    right: '-370px',
+    opacity: 0
+  },
+  {
+    right: 0,
+    opacity: 1
   }
+]
 
-  animation.play()
+const detailsBoxSwipeOutKeyframes = [...detailsBoxSwipeInKeyframes].reverse()
 
-  return animation
-}
-
-export const swipeIn = ({descriptionBox, imageBox, rightBox, onFinish = NOOP}) => {
+export const swipeIn = ({descriptionBox, imageBox, detailsBox, onFinish = NOOP}) => {
+  
   const effects = [
     new KeyframeEffect(descriptionBox, descriptionBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(imageBox, imageBoxSwipeInKeyframes, TIMING)
+    new KeyframeEffect(imageBox, imageBoxSwipeInKeyframes, TIMING),
+    new KeyframeEffect(detailsBox, detailsBoxSwipeInKeyframes, TIMING)
   ]
 
   const sequence = new SequenceEffect(effects)
@@ -74,17 +70,21 @@ export const swipeIn = ({descriptionBox, imageBox, rightBox, onFinish = NOOP}) =
 export const change = ({
     inDescriptionBox,
     inImageBox,
-    inRightBox,
+    inDetailsBox,
     outDescriptionBox,
     outImageBox,
-    outRightBox,
+    outDetailsBox,
     onFinish = NOOP}) => {
+
+      console.log(detailsBoxSwipeInKeyframes)
 
   const effects = [
     new KeyframeEffect(outDescriptionBox, descriptionBoxSwipeOutKeyframes, TIMING),
     new KeyframeEffect(outImageBox, imageBoxSwipeOutKeyframes, TIMING),
+    new KeyframeEffect(outDetailsBox, detailsBoxSwipeOutKeyframes, TIMING),
     new KeyframeEffect(inDescriptionBox, descriptionBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING)
+    new KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING),
+    new KeyframeEffect(inDetailsBox, detailsBoxSwipeInKeyframes, TIMING)
   ]
 
   const sequence = new SequenceEffect(effects)

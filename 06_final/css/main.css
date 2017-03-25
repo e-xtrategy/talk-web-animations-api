@@ -973,8 +973,10 @@ button {
     max-width: 100%; }
 
 .details_box {
+  position: absolute;
   width: 30%;
-  float: right; }
+  right: -370px;
+  opacity: 0; }
   .details_box .details_box__title {
     margin: 0 0 10px 0;
     padding: 0;
@@ -993,19 +995,6 @@ button {
   animation-duration: 1s;
   animation-timing-function: ease-out; }
 
-.a-fade_in {
-  animation-name: fade_in; }
-
-@keyframes fade_in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-.a-fade_out {
-  animation-name: fade_in;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; }
-
 @keyframes swipe_right_in {
   0% {
     position: relative;
@@ -1022,20 +1011,6 @@ button {
 
 .a-swipe_down_in {
   animation-name: swipe_down_in; }
-
-@keyframes swipe_down_in {
-  0% {
-    position: relative;
-    bottom: -370px;
-    opacity: 0; }
-  100% {
-    position: relative;
-    bottom: 0px;
-    opacity: 1; } }
-.a-swipe_down_out {
-  animation-name: swipe_down_in;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; }
 
 .a-change_background_color {
   animation-name: change_background_color;

@@ -3,9 +3,12 @@ import { swipeIn, change } from './body'
 import { fadeIn, change as changeTitle } from './title'
 
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
+const titles = document.querySelectorAll('.main_article__title')
 const descriptionBoxes = document.querySelectorAll('.description_box')
 const imageBoxes = document.querySelectorAll('.image_box')
-const titles = document.querySelectorAll('.main_article__title')
+const detailsBoxes = document.querySelectorAll('.details_box')
+
+console.log(detailsBoxes)
 
 let activeIndex = 0
 
@@ -17,8 +20,10 @@ const goTo = newIndex => {
       change({
         inDescriptionBox: descriptionBoxes[newIndex],
         inImageBox: imageBoxes[newIndex],
+        inDetailsBox: detailsBoxes[newIndex],
         outDescriptionBox: descriptionBoxes[activeIndex],
         outImageBox: imageBoxes[activeIndex],
+        outDetailsBox: detailsBoxes[activeIndex],
         onFinish: () => {
           changeTitle({
             toFadeIn: titles[newIndex],
@@ -80,7 +85,8 @@ activate({
 
 swipeIn({
   descriptionBox: descriptionBoxes[0],
-  imageBox: imageBoxes[0]
+  imageBox: imageBoxes[0],
+  detailsBox: detailsBoxes[0]
 })
 
 fadeIn({
