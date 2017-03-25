@@ -1,4 +1,3 @@
-const NOOP = () => {}
 const DURATION = 250
 
 const TIMING = {
