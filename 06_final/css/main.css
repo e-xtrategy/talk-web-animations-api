@@ -916,12 +916,6 @@ button {
       .timeline .timeline__list__item.m-active span {
         font-size: 36px;
         cursor: default; }
-    .timeline .timeline__list__item:hover {
-      top: -11px; }
-      .timeline .timeline__list__item:hover em {
-        background-color: #FA5A5A; }
-      .timeline .timeline__list__item:hover span {
-        font-size: 36px; }
 
 .pagination_button {
   border: none;

@@ -1,59 +1,91 @@
 const DURATION = 100
 
-export const createChangeIndexAnimation = (elements, toDeactivateIndex, toActivateIndex) => {
-  const toDeactivateKeyframes = [
-    {
-      top: '-11px'
-    },
-    {
-      top: '-25px'
-    }
-  ]
+const TIMING = {
+  duration: DURATION,
+  fill: 'forwards'
+}
 
-  const toDeactivateTextKeyframes = [
-    {
-      fontSize: '36px'
-    },
-    {
-      fontSize: '24px'
-    }
-  ]
+const toDeactivateKeyframes = [
+  {
+    top: '-11px'
+  },
+  {
+    top: '-25px'
+  }
+]
 
-  const toDeactivateEmKeyframes = [
-    {
-      backgroundColor: '#FA5A5A'
-    },
-    {
-      backgroundColor: '#E8F1FF'
-    }
-  ]
+const toDeactivateTextKeyframes = [
+  {
+    fontSize: '36px'
+  },
+  {
+    fontSize: '24px'
+  }
+]
 
-  const toActivateKeyframes = [...toDeactivateKeyframes].reverse()
-  const toActivateTextKeyframes = [...toDeactivateTextKeyframes].reverse()
-  const toActivateEmKeyframes = [...toDeactivateEmKeyframes].reverse()
+const toDeactivateEmKeyframes = [
+  {
+    backgroundColor: '#FA5A5A'
+  },
+  {
+    backgroundColor: '#E8F1FF'
+  }
+]
 
-  const toActivate = elements[toActivateIndex]
+const toActivateKeyframes = [...toDeactivateKeyframes].reverse()
+const toActivateTextKeyframes = [...toDeactivateTextKeyframes].reverse()
+const toActivateEmKeyframes = [...toDeactivateEmKeyframes].reverse()
+
+const createActivateEffects = toActivate => {
   const toActivateSpan = toActivate.querySelector('span')
   const toActivateEm = toActivate.querySelector('em')
-  const toDeactivate = elements[toDeactivateIndex]
+
+  const effects = [
+    new KeyframeEffect(toActivate, toActivateKeyframes, TIMING),
+    new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING),
+    new KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)
+  ]
+
+  return new GroupEffect(effects)
+}
+
+export const activate = toActivate => {
+  const group = createActivateEffects(toActivate)
+
+  const animation = new Animation(group, document.timeline)
+
+  return animation
+}
+
+const createDeactivateEffects = toDeactivate => {
   const toDeactivateSpan = toDeactivate.querySelector('span')
   const toDeactivateEm = toDeactivate.querySelector('em')
 
-  const timing = {
-    duration: DURATION,
-    fill: 'forwards'
-  }
-
   const effects = [
-    new KeyframeEffect(toDeactivate, toDeactivateKeyframes, timing),
-    new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, timing),
-    new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, timing),
-    new KeyframeEffect(toActivate, toActivateKeyframes, timing),
-    new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, timing),
-    new KeyframeEffect(toActivateEm, toActivateEmKeyframes, timing)
+    new KeyframeEffect(toDeactivate, toDeactivateKeyframes, TIMING),
+    new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING),
+    new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)
   ]
 
-  const group = new GroupEffect(effects)
+  return new GroupEffect(effects)
+}
+
+export const deactivate = toDeactivate => {
+  const group = createDeactivateEffects(toDeactivate)
+
+  const animation = new Animation(group, document.timeline)
+
+  return animation
+}
+
+export const createChangeIndexAnimation = (toActivate, toDeactivate) => {
+
+  const effects = [
+    createDeactivateEffects(toDeactivate),
+    createActivateEffects(toActivate)
+  ]
+
+  const group = new SequenceEffect(effects)
 
   const animation = new Animation(group, document.timeline)
 
