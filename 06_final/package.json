@@ -7,7 +7,7 @@
   "author": "Francesco Strazzullo <francesco.strazzullo86@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port 8086",
     "build": "webpack"
   },
   "devDependencies": {
