@@ -46,56 +46,37 @@ const detailsBoxSwipeInKeyframes = [
 
 const detailsBoxSwipeOutKeyframes = [...detailsBoxSwipeInKeyframes].reverse()
 
-export const swipeIn = ({descriptionBox, imageBox, detailsBox, onFinish = NOOP}) => {
-  
-  const effects = [
-    new KeyframeEffect(descriptionBox, descriptionBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(imageBox, imageBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(detailsBox, detailsBoxSwipeInKeyframes, TIMING)
-  ]
-
-  const sequence = new SequenceEffect(effects)
-
-  const animation = new Animation(sequence, document.timeline)
-
-  animation.onfinish = () => {
-    onFinish()
-  }
-
-  animation.play()
-
-  return animation
-}
-
-export const change = ({
+export default ({
     inDescriptionBox,
     inImageBox,
     inDetailsBox,
     outDescriptionBox,
     outImageBox,
-    outDetailsBox,
-    onFinish = NOOP}) => {
-
-      console.log(detailsBoxSwipeInKeyframes)
-
-  const effects = [
-    new KeyframeEffect(outDescriptionBox, descriptionBoxSwipeOutKeyframes, TIMING),
-    new KeyframeEffect(outImageBox, imageBoxSwipeOutKeyframes, TIMING),
-    new KeyframeEffect(outDetailsBox, detailsBoxSwipeOutKeyframes, TIMING),
-    new KeyframeEffect(inDescriptionBox, descriptionBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING),
-    new KeyframeEffect(inDetailsBox, detailsBoxSwipeInKeyframes, TIMING)
-  ]
-
-  const sequence = new SequenceEffect(effects)
-
-  const animation = new Animation(sequence, document.timeline)
-
-  animation.onfinish = () => {
-    onFinish()
+    outDetailsBox}) => {
+  const effects = []
+  if (outDescriptionBox) {
+    effects.push(new KeyframeEffect(outDescriptionBox, descriptionBoxSwipeOutKeyframes, TIMING))
   }
 
-  animation.play()
+  if (outImageBox) {
+    effects.push(new KeyframeEffect(outImageBox, imageBoxSwipeOutKeyframes, TIMING))
+  }
 
-  return animation
+  if (outDetailsBox) {
+    effects.push(new KeyframeEffect(outDetailsBox, detailsBoxSwipeOutKeyframes, TIMING))
+  }
+
+  if (inDescriptionBox) {
+    effects.push(new KeyframeEffect(inDescriptionBox, descriptionBoxSwipeInKeyframes, TIMING))
+  }
+
+  if (inImageBox) {
+    effects.push(new KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING))
+  }
+
+  if (inDetailsBox) {
+    effects.push(new KeyframeEffect(inDetailsBox, detailsBoxSwipeInKeyframes, TIMING))
+  }
+
+  return effects
 }

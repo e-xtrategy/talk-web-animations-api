@@ -1,4 +1,3 @@
-const NOOP = () => {}
 const DURATION = 250
 
 const TIMING = {
@@ -18,27 +17,16 @@ const fadeInKeyframes = [
 
 const fadeOutKeyframes = [...fadeInKeyframes].reverse()
 
-export const fadeIn = ({toFadeIn}) => {
-  const fadeInEffect = new KeyframeEffect(toFadeIn, fadeInKeyframes, TIMING)
+export default ({toFadeIn, toFadeOut}) => {
+  const effects = []
 
-  const animation = new Animation(fadeInEffect, document.timeline)
+  if (toFadeOut) {
+    effects.push(new KeyframeEffect(toFadeOut, fadeOutKeyframes, TIMING))
+  }
 
-  animation.play()
+  if (toFadeIn) {
+    effects.push(new KeyframeEffect(toFadeIn, fadeInKeyframes, TIMING))
+  }
 
-  return animation
-}
-
-export const change = ({toFadeIn, toFadeOut}) => {
-  const effects = [
-    new KeyframeEffect(toFadeOut, fadeOutKeyframes, TIMING),
-    new KeyframeEffect(toFadeIn, fadeInKeyframes, TIMING)
-  ]
-
-  const sequence = new SequenceEffect(effects)
-
-  const animation = new Animation(sequence, document.timeline)
-
-  animation.play()
-
-  return animation
+  return effects
 }

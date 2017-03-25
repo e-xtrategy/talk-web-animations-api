@@ -1,6 +1,8 @@
-import { createChangeIndexAnimation, activate, deactivate } from './timeline'
-import { swipeIn, change } from './body'
-import { fadeIn, change as changeTitle } from './title'
+import createTimelineEffects from './timeline'
+import createBodyEffects from './body'
+import createTitleEffects from './title'
+
+const NOOP = () => {}
 
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
 const titles = document.querySelectorAll('.main_article__title')
@@ -8,32 +10,39 @@ const descriptionBoxes = document.querySelectorAll('.description_box')
 const imageBoxes = document.querySelectorAll('.image_box')
 const detailsBoxes = document.querySelectorAll('.details_box')
 
-console.log(detailsBoxes)
+const playSequence = (sequence, cb = NOOP) => {
+  const animation = new Animation(new SequenceEffect(sequence), document.timeline)
+
+  animation.onfinish = cb
+
+  animation.play()
+
+  return animation
+}
 
 let activeIndex = 0
 
 const goTo = newIndex => {
-  createChangeIndexAnimation({
-    toActivate: timeLineItems[newIndex],
-    toDeactivate: timeLineItems[activeIndex],
-    onFinish: () => {
-      change({
-        inDescriptionBox: descriptionBoxes[newIndex],
-        inImageBox: imageBoxes[newIndex],
-        inDetailsBox: detailsBoxes[newIndex],
-        outDescriptionBox: descriptionBoxes[activeIndex],
-        outImageBox: imageBoxes[activeIndex],
-        outDetailsBox: detailsBoxes[activeIndex],
-        onFinish: () => {
-          changeTitle({
-            toFadeIn: titles[newIndex],
-            toFadeOut: titles[activeIndex]
-          })
-          activeIndex = newIndex
-        }
-      })
-    }
-  })
+  const sequence = [
+    ...createTimelineEffects({
+      toActivate: timeLineItems[newIndex],
+      toDeactivate: timeLineItems[activeIndex]
+    }),
+    ...createBodyEffects({
+      inDescriptionBox: descriptionBoxes[newIndex],
+      inImageBox: imageBoxes[newIndex],
+      inDetailsBox: detailsBoxes[newIndex],
+      outDescriptionBox: descriptionBoxes[activeIndex],
+      outImageBox: imageBoxes[activeIndex],
+      outDetailsBox: detailsBoxes[activeIndex]
+    }),
+    ...createTitleEffects({
+      toFadeIn: titles[newIndex],
+      toFadeOut: titles[activeIndex]
+    })
+  ]
+
+  playSequence(sequence, () => { activeIndex = newIndex })
 }
 
 const next = () => {
@@ -53,43 +62,69 @@ document.querySelector('[data-previous]').addEventListener('click', previous, fa
 timeLineItems.forEach((node, index) => {
   node.addEventListener('mouseenter', () => {
     if (index !== activeIndex) {
-      activate({
-        toActivate: node
-      })
+      const sequence = [
+        ...createTimelineEffects({
+          toActivate: node
+        })
+      ]
+
+      playSequence(sequence)
     }
   }, false)
+
   node.addEventListener('mouseleave', () => {
     if (index !== activeIndex) {
-      deactivate({
-        toDeactivate: node
-      })
+      const sequence = [
+        ...createTimelineEffects({
+          toDeactivate: node
+        })
+      ]
+
+      playSequence(sequence)
     }
   }, false)
+
   node.addEventListener('click', () => {
     if (index !== activeIndex) {
-      deactivate({
-        toDeactivate: timeLineItems[activeIndex],
-        onFinish: () => {
-          activeIndex = index
-        }
-      })
+      const sequence = [
+        ...createTimelineEffects({
+          toDeactivate: timeLineItems[activeIndex]
+        }),
+        ...createBodyEffects({
+          inDescriptionBox: descriptionBoxes[index],
+          inImageBox: imageBoxes[index],
+          inDetailsBox: detailsBoxes[index],
+          outDescriptionBox: descriptionBoxes[activeIndex],
+          outImageBox: imageBoxes[activeIndex],
+          outDetailsBox: detailsBoxes[activeIndex]
+        }),
+        ...createTitleEffects({
+          toFadeIn: titles[index],
+          toFadeOut: titles[activeIndex]
+        })
+      ]
+
+      playSequence(sequence, () => { activeIndex = index })
     }
   }, false)
 })
 
-// Init
+const init = () => {
+  const sequence = [
+    ...createTimelineEffects({
+      toActivate: timeLineItems[0]
+    }),
+    ...createBodyEffects({
+      inDescriptionBox: descriptionBoxes[0],
+      inImageBox: imageBoxes[0],
+      inDetailsBox: detailsBoxes[0]
+    }),
+    ...createTitleEffects({
+      toFadeIn: titles[0]
+    })
+  ]
 
-activate({
-  toActivate: timeLineItems[0]
-})
+  playSequence(sequence)
+}
 
-swipeIn({
-  descriptionBox: descriptionBoxes[0],
-  imageBox: imageBoxes[0],
-  detailsBox: detailsBoxes[0]
-})
-
-fadeIn({
-  toFadeIn: titles[0]
-})
-
+init()
