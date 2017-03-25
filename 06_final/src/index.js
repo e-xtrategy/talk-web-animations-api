@@ -5,8 +5,13 @@ const timeLineItems = document.querySelectorAll('.timeline__list__item')
 let activeIndex = 0
 
 const goTo = newIndex => {
-  createChangeIndexAnimation(timeLineItems[newIndex], timeLineItems[activeIndex])
-  activeIndex = newIndex
+  createChangeIndexAnimation({
+    toActivate: timeLineItems[newIndex],
+    toDeactivate: timeLineItems[activeIndex],
+    onFinish: () => {
+      activeIndex = newIndex
+    }
+  })
 }
 
 const next = () => {
@@ -26,23 +31,33 @@ document.querySelector('[data-previous]').addEventListener('click', previous, fa
 timeLineItems.forEach((node, index) => {
   node.addEventListener('mouseenter', () => {
     if (index !== activeIndex) {
-      activate(node)
+      activate({
+        toActivate: node
+      })
     }
   }, false)
   node.addEventListener('mouseleave', () => {
     if (index !== activeIndex) {
-      deactivate(node)
+      deactivate({
+        toDeactivate: node
+      })
     }
   }, false)
   node.addEventListener('click', () => {
     if (index !== activeIndex) {
-      deactivate(timeLineItems[activeIndex])
-      activeIndex = index
+      deactivate({
+        toDeactivate: timeLineItems[activeIndex],
+        onFinish: () => {
+          activeIndex = index
+        }
+      })
     }
   }, false)
 })
 
 // Init
 
-activate(timeLineItems[0])
+activate({
+  toActivate: timeLineItems[0]
+})
 

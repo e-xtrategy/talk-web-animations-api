@@ -1,3 +1,4 @@
+const NOOP = () => {}
 const DURATION = 100
 
 const TIMING = {
@@ -62,27 +63,37 @@ const createDeactivateEffects = toDeactivate => {
   return new GroupEffect(effects)
 }
 
-export const activate = toActivate => {
+export const activate = ({toActivate, onFinish = NOOP}) => {
   const group = createActivateEffects(toActivate)
 
   const animation = new Animation(group, document.timeline)
 
+  animation.onfinish = () => {
+    toActivate.classList.add('m-active')
+    onFinish()
+  }
+
   animation.play()
 
   return animation
 }
 
-export const deactivate = toDeactivate => {
+export const deactivate = ({toDeactivate, onFinish = NOOP}) => {
   const group = createDeactivateEffects(toDeactivate)
 
   const animation = new Animation(group, document.timeline)
 
+  animation.onfinish = () => {
+    toDeactivate.classList.remove('m-active')
+    onFinish()
+  }
+
   animation.play()
 
   return animation
 }
 
-export const createChangeIndexAnimation = (toActivate, toDeactivate) => {
+export const createChangeIndexAnimation = ({toActivate, toDeactivate, onFinish = NOOP}) => {
   const effects = [
     createDeactivateEffects(toDeactivate),
     createActivateEffects(toActivate)
@@ -91,6 +102,12 @@ export const createChangeIndexAnimation = (toActivate, toDeactivate) => {
   const group = new SequenceEffect(effects)
 
   const animation = new Animation(group, document.timeline)
+
+  animation.onfinish = () => {
+    toDeactivate.classList.remove('m-active')
+    toActivate.classList.add('m-active')
+    onFinish()
+  }
 
   animation.play()
 
