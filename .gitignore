@@ -39,3 +39,4 @@ jspm_packages
 # sass
 .sass-cache/
 *.css.map
+bundle.js
