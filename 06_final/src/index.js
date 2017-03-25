@@ -3,6 +3,7 @@ import { swipeIn, change } from './body'
 
 const timeLineItems = document.querySelectorAll('.timeline__list__item')
 const descriptionBoxes = document.querySelectorAll('.description_box')
+const imageBoxes = document.querySelectorAll('.image_box')
 
 let activeIndex = 0
 
@@ -13,7 +14,9 @@ const goTo = newIndex => {
     onFinish: () => {
       change({
         inDescriptionBox: descriptionBoxes[newIndex],
+        inImageBox: imageBoxes[newIndex],
         outDescriptionBox: descriptionBoxes[activeIndex],
+        outImageBox: imageBoxes[activeIndex],
         onFinish: () => {
           activeIndex = newIndex
         }
@@ -70,6 +73,7 @@ activate({
 })
 
 swipeIn({
-  descriptionBox: descriptionBoxes[0]
+  descriptionBox: descriptionBoxes[0],
+  imageBox: imageBoxes[0]
 })
 
