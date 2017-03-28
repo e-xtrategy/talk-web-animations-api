@@ -8,11 +8,11 @@ const TIMING = {
 
 const descriptionBoxSwipeInKeyframes = [
   {
-    left: '-370px',
+    marginLeft: '-30%',
     opacity: 0
   },
   {
-    left: 0,
+    marginLeft: '0%',
     opacity: 1
   }
 ]

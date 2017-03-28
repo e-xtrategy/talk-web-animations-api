@@ -952,11 +952,13 @@ button {
 
 .description_box {
   width: 30%;
-  float: left; 
   position: absolute;
-  left: -370px;
+  left: 0;
   opacity: 0;
-}
+  margin-left: -30%;
+  height: calc(100% - 110px);
+  padding-left: 50px; }
+
 
 .image_box {
   width: 40%;
