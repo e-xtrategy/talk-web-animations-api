@@ -21,11 +21,11 @@ const descriptionBoxSwipeOutKeyframes = [...descriptionBoxSwipeInKeyframes].reve
 
 const imageBoxSwipeInKeyframes = [
   {
-    top: '370px',
+    marginTop: '60%',
     opacity: 0
   },
   {
-    top: 0,
+    marginTop: 0,
     opacity: 1
   }
 ]
