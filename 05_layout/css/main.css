@@ -938,7 +938,7 @@ button[type="button"] {
   width: 30%;
   position: absolute;
   left: 0;
-  height: calc(100% - 100px);
+  height: calc(100% - 110px);
   padding-left: 50px; }
 
 .image_box {
@@ -950,7 +950,7 @@ button[type="button"] {
   text-align: center;
   position: absolute;
   left: 30%;
-  height: calc(100% - 100px); }
+  height: calc(100% - 110px); }
   .image_box img {
     display: block;
     margin: auto;
@@ -960,7 +960,7 @@ button[type="button"] {
   width: 30%;
   position: absolute;
   right: 0;
-  height: calc(100% - 100px);
+  height: calc(100% - 110px);
   padding-right: 50px; }
   .details_box .details_box__title {
     margin: 0 0 10px 0;
