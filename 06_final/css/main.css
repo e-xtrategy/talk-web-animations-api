@@ -970,10 +970,13 @@ button {
     max-width: 100%; }
 
 .details_box {
-  position: absolute;
   width: 30%;
-  right: -370px;
-  opacity: 0; }
+  position: absolute;
+  right: 0;
+  margin-right: -30%;
+  opacity: 0;
+  height: calc(100% - 110px);
+  padding-right: 50px; }
   .details_box .details_box__title {
     margin: 0 0 10px 0;
     padding: 0;

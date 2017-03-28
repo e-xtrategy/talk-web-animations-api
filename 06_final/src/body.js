@@ -34,11 +34,11 @@ const imageBoxSwipeOutKeyframes = [...imageBoxSwipeInKeyframes].reverse()
 
 const detailsBoxSwipeInKeyframes = [
   {
-    right: '-370px',
+    marginRight: '-30%',
     opacity: 0
   },
   {
-    right: 0,
+    marginRight: 0,
     opacity: 1
   }
 ]
