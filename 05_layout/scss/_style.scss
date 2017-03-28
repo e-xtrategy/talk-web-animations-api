@@ -223,7 +223,7 @@ $timeline-height:120px;
         display:inline-block;
         width:19.5%;
         position:relative;
-        top:-25px;
+        top:-11px;
         text-align:center;
         em{
             @include border-radius(50%);
@@ -241,26 +241,22 @@ $timeline-height:120px;
             cursor:pointer;
         }
         &.m-active{
-            top:-11px;
             em{
                 background-color:$timeline-brd;
                 cursor:default;
             }
             span{
-                font-size:36px;
                 cursor:default;
+                color:$timeline-brd;
+                font-family:$font-stack-semi-bold;
             }
         }
         &:hover{
-            top:-11px;
-            //@extend .a-change_top_position;
             em{
-                background-color:$timeline-brd;
-                //@extend .a-change_background_color;
+                @extend .a-change_background_color;
             }
             span{
-                font-size:36px;
-                //@extend .a-change_font_size;
+                @extend .a-change_font;
             }
         }
     }

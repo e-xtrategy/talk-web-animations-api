@@ -12,10 +12,10 @@
 // - a-swipe_down_out
 // - a-change_background_color
 // - a-restore_background_color
-// - a-change_font_size
-// - a-restore_font_size
-// - a-change_top_position
-// - a-restore_top_position
+// - a-change_color
+// - a-restore_color
+// - a-change_font_Family
+// - a-restore_font_family
 // - a-full_screen_loading
 
 // animation
@@ -141,49 +141,28 @@
     animation-direction:reverse;
 }
 
-// a-change_font_size
-.a-change_font_size{
+// a-change_font
+.a-change_font{
     @extend %animation;
-    animation-name:change_font_size;
+    animation-name:change_font;
     animation-fill-mode:forwards;
     animation-duration:0.5s;
 }
-@keyframes change_font_size {
+@keyframes change_font {
     0% {
-        font-size:24px;
+        color:$text;
+        font-family:$font-stack-regular;
     }
     100% {
-        font-size:36px;
+        color:$timeline-brd;
+        font-family:$font-stack-semi-bold;
     }
 }
 
-// a-restore_font_size
-.a-restore_font_size{
+// a-restore_font
+.a-restore_font{
     @extend %animation;
-    animation-name:change_font_size;
-    animation-direction:reverse;
-}
-
-// a-change_top_position
-.a-change_top_position{
-    @extend %animation;
-    animation-name:change_top_position;
-    animation-fill-mode:forwards;
-    animation-duration:0.5s;
-}
-@keyframes change_top_position {
-    0% {
-        top:-25px;
-    }
-    100% {
-        top:-11px;
-    }
-}
-
-// a-restore_top_position
-.a-restore_top_position{
-    @extend %animation;
-    animation-name:change_top_position;
+    animation-name:change_font;
     animation-direction:reverse;
 }
 
