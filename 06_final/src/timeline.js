@@ -6,21 +6,14 @@ const TIMING = {
   ease: 'ease-out'
 }
 
-const toDeactivateKeyframes = [
-  {
-    top: '-11px'
-  },
-  {
-    top: '-25px'
-  }
-]
-
 const toDeactivateTextKeyframes = [
   {
-    fontSize: '36px'
+    color: '#FA5A5A',
+    fontWeight: 'bold'
   },
   {
-    fontSize: '24px'
+    color: 'black',
+    fontWeight: 'normal'
   }
 ]
 
@@ -33,7 +26,6 @@ const toDeactivateEmKeyframes = [
   }
 ]
 
-const toActivateKeyframes = [...toDeactivateKeyframes].reverse()
 const toActivateTextKeyframes = [...toDeactivateTextKeyframes].reverse()
 const toActivateEmKeyframes = [...toDeactivateEmKeyframes].reverse()
 
@@ -42,7 +34,6 @@ const createActivateEffects = toActivate => {
   const toActivateEm = toActivate.querySelector('em')
 
   const effects = [
-    new KeyframeEffect(toActivate, toActivateKeyframes, TIMING),
     new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING),
     new KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)
   ]
@@ -55,7 +46,6 @@ const createDeactivateEffects = toDeactivate => {
   const toDeactivateEm = toDeactivate.querySelector('em')
 
   const effects = [
-    new KeyframeEffect(toDeactivate, toDeactivateKeyframes, TIMING),
     new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING),
     new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)
   ]
