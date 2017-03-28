@@ -62,6 +62,10 @@
 
 	var _completeSequence2 = _interopRequireDefault(_completeSequence);
 
+	var _loading = __webpack_require__(5);
+
+	var _loading2 = _interopRequireDefault(_loading);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -73,6 +77,7 @@
 	var descriptionBoxes = document.querySelectorAll('.description_box');
 	var imageBoxes = document.querySelectorAll('.image_box');
 	var detailsBoxes = document.querySelectorAll('.details_box');
+	var loadingBox = document.querySelector('.full_screen_loading');
 
 	var playSequence = function playSequence(sequence) {
 	  var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : NOOP;
@@ -208,7 +213,7 @@
 	  playSequence(sequence);
 	};
 
-	init();
+	(0, _loading2.default)(loadingBox, init);
 
 /***/ },
 /* 1 */
@@ -227,16 +232,12 @@
 	  ease: 'ease-out'
 	};
 
-	var toDeactivateKeyframes = [{
-	  top: '-11px'
-	}, {
-	  top: '-25px'
-	}];
-
 	var toDeactivateTextKeyframes = [{
-	  fontSize: '36px'
+	  color: '#FA5A5A',
+	  fontWeight: 'bold'
 	}, {
-	  fontSize: '24px'
+	  color: 'black',
+	  fontWeight: 'normal'
 	}];
 
 	var toDeactivateEmKeyframes = [{
@@ -245,7 +246,6 @@
 	  backgroundColor: '#E8F1FF'
 	}];
 
-	var toActivateKeyframes = [].concat(toDeactivateKeyframes).reverse();
 	var toActivateTextKeyframes = [].concat(toDeactivateTextKeyframes).reverse();
 	var toActivateEmKeyframes = [].concat(toDeactivateEmKeyframes).reverse();
 
@@ -253,7 +253,7 @@
 	  var toActivateSpan = toActivate.querySelector('span');
 	  var toActivateEm = toActivate.querySelector('em');
 
-	  var effects = [new KeyframeEffect(toActivate, toActivateKeyframes, TIMING), new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING), new KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)];
+	  var effects = [new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING), new KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)];
 
 	  return new GroupEffect(effects);
 	};
@@ -262,7 +262,7 @@
 	  var toDeactivateSpan = toDeactivate.querySelector('span');
 	  var toDeactivateEm = toDeactivate.querySelector('em');
 
-	  var effects = [new KeyframeEffect(toDeactivate, toDeactivateKeyframes, TIMING), new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING), new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)];
+	  var effects = [new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING), new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)];
 
 	  return new GroupEffect(effects);
 	};
@@ -302,30 +302,30 @@
 	};
 
 	var descriptionBoxSwipeInKeyframes = [{
-	  left: '-370px',
+	  marginLeft: '-30%',
 	  opacity: 0
 	}, {
-	  left: 0,
+	  marginLeft: '0%',
 	  opacity: 1
 	}];
 
 	var descriptionBoxSwipeOutKeyframes = [].concat(descriptionBoxSwipeInKeyframes).reverse();
 
 	var imageBoxSwipeInKeyframes = [{
-	  top: '370px',
+	  marginTop: '60%',
 	  opacity: 0
 	}, {
-	  top: 0,
+	  marginTop: 0,
 	  opacity: 1
 	}];
 
 	var imageBoxSwipeOutKeyframes = [].concat(imageBoxSwipeInKeyframes).reverse();
 
 	var detailsBoxSwipeInKeyframes = [{
-	  right: '-370px',
+	  marginRight: '-30%',
 	  opacity: 0
 	}, {
-	  right: 0,
+	  marginRight: 0,
 	  opacity: 1
 	}];
 
@@ -474,6 +474,47 @@
 	  var animation = new Animation(new SequenceEffect(effects), document.timeline);
 
 	  animation.onfinish = onFinish;
+
+	  return animation;
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var NOOP = function NOOP() {};
+	var DURATION = 1000;
+
+	var TIMING = {
+	  duration: DURATION,
+	  fill: 'forwards',
+	  ease: 'ease-out'
+	};
+
+	var fadeOutKeyframes = [{
+	  opacity: 1
+	}, {
+	  opacity: 0
+	}];
+
+	exports.default = function (loading) {
+	  var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : NOOP;
+
+	  var effect = new KeyframeEffect(loading, fadeOutKeyframes, TIMING);
+
+	  var animation = new Animation(effect, document.timeline);
+
+	  animation.onfinish = function () {
+	    loading.style.display = 'none';
+	    cb();
+	  };
+
+	  animation.play();
 
 	  return animation;
 	};
