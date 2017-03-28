@@ -53,13 +53,11 @@
 }
 @keyframes swipe_left_in {
     0% {
-        position:relative;
-        left:-370px;
+        margin-left:-30%;
         opacity:0;
     }
     100% {
-        position:relative;
-        left:0px;
+        margin-left:0;
         opacity:1;
     }
 }
@@ -79,13 +77,11 @@
 }
 @keyframes swipe_right_in {
     0% {
-        position:relative;
-        right:-370px;
+        margin-right:-30%;
         opacity:0;
     }
     100% {
-        position:relative;
-        right:0px;
+        margin-right:0;
         opacity:1;
     }
 }
@@ -105,13 +101,11 @@
 }
 @keyframes swipe_down_in {
     0% {
-        position:relative;
-        bottom:-370px;
+        bottom:-60%;
         opacity:0;
     }
     100% {
-        position:relative;
-        bottom:0px;
+        bottom:0;
         opacity:1;
     }
 }
