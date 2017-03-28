@@ -2,6 +2,7 @@ import createTimelineEffects from './timeline'
 import createBodyEffects from './body'
 import createTitleEffects from './title'
 import completeSequenceAnimation from './completeSequence'
+import loadingAnimation from './loading'
 
 const NOOP = () => {}
 
@@ -10,6 +11,7 @@ const titles = document.querySelectorAll('.main_article__title')
 const descriptionBoxes = document.querySelectorAll('.description_box')
 const imageBoxes = document.querySelectorAll('.image_box')
 const detailsBoxes = document.querySelectorAll('.details_box')
+const loadingBox = document.querySelector('.full_screen_loading')
 
 const playSequence = (sequence, cb = NOOP) => {
   const animation = new Animation(new SequenceEffect(sequence), document.timeline)
@@ -156,4 +158,4 @@ const init = () => {
   playSequence(sequence)
 }
 
-init()
+loadingAnimation(loadingBox, init)
