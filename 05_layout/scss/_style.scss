@@ -303,13 +303,12 @@ $timeline-height:120px;
 
 .image_box{
     width:40%;
-    margin-top:0;
-    margin-left:0;
-    margin-right:0;
+    margin:0;
     padding:25px;
     text-align:center;
     position:absolute;
     left:30%;
+    bottom:0;
     height:calc(100% - 110px);
     img{
         display:block;
