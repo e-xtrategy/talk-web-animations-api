@@ -752,7 +752,7 @@ form {
   margin: 0;
   padding: 0; }
 
-button {
+button[type="button"]{
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -764,7 +764,7 @@ button {
   font-size: 18px;
   font-weight: normal;
   font-family: "Titillium-Web-Semi-Bold", Helvetica, Arial, sans-serif; }
-  button:hover {
+  button[type="button"]:hover {
     cursor: pointer;
     background-color: red; }
 
