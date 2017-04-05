@@ -5,6 +5,7 @@
 // - Colors
 // - Reset
 // - Layout
+// - Animation
 
 // font-face
 @font-face {
@@ -240,3 +241,83 @@ $timeline-height:120px;
     }
 }
 
+.div_transition2{
+    margin-bottom:20px;
+    padding:10px;
+    width:200px;
+    height:100px;
+    background-color:red;
+    color:white;
+    font-size:20px;
+    text-align:center;
+    position:relative;
+    left:0;
+
+    transition:width, height, background-color, border-radius, left, transform;
+    transition-delay:1s;
+    transition-duration:1s;
+    transition-timing-function:ease-in;
+    &.animated{
+        width:300px;
+        height:80px;
+        background-color:green;
+        border-radius:10px;
+        left:100px;
+    }
+}
+
+.div_animation{
+    margin-bottom:20px;
+    padding:10px;
+    width:200px;
+    height:100px;
+    background-color:red;
+    color:white;
+    font-size:20px;
+    text-align:center;
+    position:relative;
+    &.animated{
+        @extend .a-change;
+    }
+}
+
+
+
+// animation
+%animation{
+    animation-duration:3s;
+    animation-delay:1s;
+    animation-timing-function:ease-out;
+    animation-direction:normal;
+    animation-fill-mode:forwards;
+    animation-iteration-count:3;
+    animation-play-state:running;
+}
+
+// a-change
+.a-change{
+    @extend %animation;
+    animation-name:a-change;
+}
+@keyframes a-change {
+    0% {
+        @include border-radius(none);
+        @include box-shadow(none);
+        background-color:red;
+        font-size:20px;
+        left:0;
+        top:0;
+        color:white;
+        padding-top:10px;
+    }
+    100% {
+        @include border-radius(20px);
+        @include box-shadow(-10px -10px 5px 0 #000);
+        background-color:yellow;
+        font-size:12px;
+        left:100px;
+        top:20px;
+        color:black;
+        padding-top:40px;
+    }
+}

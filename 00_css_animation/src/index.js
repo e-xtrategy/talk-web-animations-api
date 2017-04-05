@@ -1,35 +1,14 @@
-const element = document.querySelector('.square')
+// Button toggle
+const element = document.querySelector('.div_transition2');
+document.querySelector('button[role="activator"]').addEventListener('click',() => {
+  element.classList.toggle('animated');
+})
 
-const ANIMATION_DURATION = 2000
+// Custom properties runtime variables
 
-let currentColor = 'red'
-let animation = null
+// Get the value of a custom property at runtime
+var styles = getComputedStyle(document.documentElement);
+var value = String(styles.getPropertyValue('--text-color')).trim();
 
-const timing = {
-  duration: ANIMATION_DURATION,
-  fill: 'forwards',
-  easing: 'ease-in-out'
-}
-
-window.changeColor = color => {
-  const keyframes = [
-    {
-      backgroundColor: currentColor
-    },
-    {
-      backgroundColor: color
-    }
-  ]
-
-  currentColor = color
-
-  const effect = new KeyframeEffect(element, keyframes, timing)
-
-  animation = new Animation(effect, document.timeline)
-
-  animation.onfinish = () => {
-    console.log(`the square is now ${color}`)
-  }
-
-  animation.play()
-}
+// Set variable by JS at runtime
+document.documentElement.style.setProperty('--text-color', 'red');
