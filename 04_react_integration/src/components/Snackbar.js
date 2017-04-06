@@ -1,19 +1,5 @@
 import React from 'react'
 
-const SNACKBAR_STYLE = {
-  opacity: 0,
-  minWidth: '250px',
-  marginLeft: '-125px',
-  backgroundColor: '#333',
-  color: '#fff',
-  textAlign: 'center',
-  borderRadius: '2px',
-  padding: '16px',
-  position: 'fixed',
-  left: '50%',
-  bottom: '-30px'
-}
-
 const SHOW_KEYFRAMES = [
   {
     bottom: '-30px',
@@ -31,7 +17,7 @@ export default class Snackbar extends React.Component {
 
   constructor (props) {
     super(props)
-    this.snackbarStyle = Object.assign({}, SNACKBAR_STYLE, {
+    this.snackbarStyle = Object.assign({}, {
       opacity: props.show ? 1 : 0,
       bottom: props.show ? '30px' : '-30px'
     })
@@ -90,7 +76,7 @@ export default class Snackbar extends React.Component {
   }
 
   render () {
-    return <div ref={snackbar => { this.snackbar = snackbar }} style={this.snackbarStyle}>{this.props.message}</div>
+    return <div className='snackbar' ref={snackbar => { this.snackbar = snackbar }} style={this.snackbarStyle}>{this.props.message}</div>
   }
 }
 

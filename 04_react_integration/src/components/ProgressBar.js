@@ -2,7 +2,7 @@ import React from 'react'
 
 const CONTAINER_STYLE = {
   width: '100%',
-  backgroundColor: 'grey'
+  backgroundColor: '#B7C0D3'
 }
 
 const BAR_STYLE = {

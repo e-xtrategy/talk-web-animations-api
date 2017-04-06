@@ -60,36 +60,51 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Animations Speed</h1>
-        <input type='range' min='250' max='2000' value={this.state.animationDuration} onChange={event => this.onChangeAnimationDuration(event)} /> {this.state.animationDuration} ms
-        <h1>Progress Bar</h1>
-        <input type='number' min='0' max='100' placeholder='Insert Progress value...' value={this.state.progressValue} onChange={event => this.onChangeProgressValue(event)} />
-        <ProgressBar value={parseInt(this.state.progressValue)} animationDuration={this.state.animationDuration} />
-        <h1>Snackbar</h1>
-        <button type='button' onClick={() => this.showSnackbar()} disabled={this.state.showSnackbar}>Show</button>
-        <input type='text' id='message' placeholder='Insert a message...' value={this.state.messageValue} onChange={event => this.onChangeMessageValue(event)} />
-        <Snackbar message={this.state.messageValue} show={this.state.showSnackbar} onHide={() => this.onSnackbarHide()} animationDuration={this.state.animationDuration} />
-        <h1>Tabs</h1>
-        <select value={this.state.tabsAnimationType} onChange={event => this.onChangeTabsAnimationType(event)}>
-          <option value='swipe-left'>Swipe Left</option>
-          <option value='swipe-right'>Swipe Right</option>
-          <option value='zoom'>Zoom</option>
-          <option value='flip'>Flip</option>
-          <option value='rotate'>Rotate</option>
-        </select>
-        <Tabs animationType={this.state.tabsAnimationType} animationDuration={this.state.animationDuration}>
-          <Tab title={'London'}>
-            <LondonTab />
-          </Tab>
-          <Tab title={'Paris'}>
-            <ParisTab />
-          </Tab>
-          <Tab title={'Tokyo'}>
-            <TokyoTab />
-          </Tab>
-        </Tabs>
-      </div>
+      <section className='main_content'>
+        <div className='block_row'>
+          <div className='left_block'>
+            <div className='box_example'>
+              <h2>Animations Speed</h2>
+              <input type='range' min='250' max='2000' value={this.state.animationDuration} onChange={event => this.onChangeAnimationDuration(event)} />
+              {this.state.animationDuration} ms
+            </div>
+            <div className='box_example'>
+              <h2>Progress Bar</h2>
+              <input type='number' min='0' max='100' placeholder='Insert Progress value...' value={this.state.progressValue} onChange={event => this.onChangeProgressValue(event)} />
+              <ProgressBar value={parseInt(this.state.progressValue)} animationDuration={this.state.animationDuration} />
+            </div>
+            <div className='box_example'>
+              <h2>Snackbar</h2>
+              <button className='button_activator' type='button' onClick={() => this.showSnackbar()} disabled={this.state.showSnackbar}>Show</button>
+              <input type='text' id='message' placeholder='Insert a message...' value={this.state.messageValue} onChange={event => this.onChangeMessageValue(event)} />
+              <Snackbar message={this.state.messageValue} show={this.state.showSnackbar} onHide={() => this.onSnackbarHide()} animationDuration={this.state.animationDuration} />
+            </div>
+          </div>
+          <div className='right_block'>
+            <div className='box_example'>
+              <h1>Tabs</h1>
+              <select value={this.state.tabsAnimationType} onChange={event => this.onChangeTabsAnimationType(event)}>
+                <option value='swipe-left'>Swipe Left</option>
+                <option value='swipe-right'>Swipe Right</option>
+                <option value='zoom'>Zoom</option>
+                <option value='flip'>Flip</option>
+                <option value='rotate'>Rotate</option>
+              </select>
+              <Tabs animationType={this.state.tabsAnimationType} animationDuration={this.state.animationDuration}>
+                <Tab title={'London'}>
+                  <LondonTab />
+                </Tab>
+                <Tab title={'Paris'}>
+                  <ParisTab />
+                </Tab>
+                <Tab title={'Tokyo'}>
+                  <TokyoTab />
+                </Tab>
+              </Tabs>
+            </div>
+          </div>
+        </div>
+      </section>
     )
   }
 }

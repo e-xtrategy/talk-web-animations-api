@@ -2,11 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { getShowKeyframes } from '../model/tabsKeyframes'
 
-const TABS_STYLE = {
-  position: 'relative',
-  width: '100%'
-}
-
 const TABLIST_STYLE = {
   overflow: 'hidden',
   border: '1px solid #ccc',
@@ -78,18 +73,18 @@ export default class Tabs extends React.Component {
   }
 
   renderHeader (text, index) {
-    const linkStyle = Object.assign({}, TAB_LINK_STYLE)
+    const linkStyle = {}
     if (index === this.state.activeIndex) {
-      linkStyle.backgroundColor = '#ccc'
+      linkStyle.backgroundColor = '#889FC9'
     }
 
-    return <a key={index} style={linkStyle} onClick={() => this.onHeaderClick(index)}>{text}</a>
+    return <span className='tablinks' key={index} style={linkStyle} onClick={() => this.onHeaderClick(index)}>{text}</span>
   }
 
   render () {
     return (
-      <div style={TABS_STYLE}>
-        <div style={TABLIST_STYLE}>
+      <div className='tabs'>
+        <div className='tab'>
           {this.props.children.map((tab, index) => this.renderHeader(tab.props.title, index))}
           {this.getChildren()}
         </div>
