@@ -7,12 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="shortcut icon" href="http://www.e-xtrategy.net/wp-content/themes/ex2011/favicon.png">
         <link rel="stylesheet" href="css/main.css" media="all">
+        <link rel="stylesheet" href="css/custom_properties.css" media="all">
     </head>
     <body>
         <header class="main_header">
-            <h1 class="main_header__title">CSS Transition</h1>
+            <h1 class="main_header__title">CSS Transition and Animation</h1>
         </header>
         <section class="main_content">
+            <h2>CSS Transition</h2>
             <div class="div_transition">transition test</div>
             <div class="div_transition m-transform2d">transition +<br /> transform 2D test</div>
             <div class="div_transition m-transform3d">transition +<br /> transform 3D test</div>
@@ -20,11 +22,17 @@
             <button role="activator">
                 <span>Action button</span>
             </button>
+
+            <h2>CSS Animation</h2>
+            <div class="div_animation">animation test</div>
+            <button role="animation_play">
+                <span>Play animation</span>
+            </button>
+
+            <h2>Custom Properties</h2>
+            <div class="div_custom_properties">custom properties</div>
         </section>
         <footer class="main_footer">
-            <ul class="main_footer__tools">
-                <li><a href="animation.html" />Next example</a></li>
-            </ul>
             <p class="main_footer__text">Web API animation Demo</p>
         </footer>
         <script type="text/javascript" src="bundle.js" charset="utf-8"></script>

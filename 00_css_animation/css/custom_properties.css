@@ -1,0 +1,9 @@
+/* Custom properties */
+
+:root{
+    --bg-color:yellow;
+}
+
+.div_custom_properties{
+    background-color:var(--bg-color);
+}

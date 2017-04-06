@@ -4,11 +4,16 @@ document.querySelector('button[role="activator"]').addEventListener('click',() =
   element.classList.toggle('animated');
 })
 
-// Custom properties runtime variables
+// Button toggle
+const element2 = document.querySelector('.div_animation');
+document.querySelector('button[role="animation_play"]').addEventListener('click',() => {
+  element2.classList.toggle('animated');
+})
 
+// Custom properties runtime variables
 // Get the value of a custom property at runtime
 var styles = getComputedStyle(document.documentElement);
-var value = String(styles.getPropertyValue('--text-color')).trim();
+var value = String(styles.getPropertyValue('--bg-color')).trim();
 
 // Set variable by JS at runtime
-document.documentElement.style.setProperty('--text-color', 'red');
+document.documentElement.style.setProperty('--bg-color', 'red');

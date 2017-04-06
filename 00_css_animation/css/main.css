@@ -929,6 +929,15 @@ button {
   text-align: center;
   position: relative; }
 
+.div_custom_properties {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+  color: white;
+  font-size: 20px;
+  text-align: center; }
+
 .a-change, .div_animation.animated {
   animation-duration: 3s;
   animation-delay: 1s;
