@@ -7,7 +7,7 @@ const CONTAINER_STYLE = {
 
 const BAR_STYLE = {
   height: '30px',
-  backgroundColor: 'green'
+  backgroundColor: '#FA5A5A'
 }
 
 const animate = (element, from, to, duration) => {
