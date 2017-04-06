@@ -38,14 +38,14 @@ export default element => {
     const sequenceEffects = []
     if (indexToHide > -1) {
       const hideKeyframes = [...showKeyframes].reverse()
-      sequenceEffects.push(new KeyframeEffect(tabContents[indexToHide], hideKeyframes, timing))
+      sequenceEffects.push(new window.KeyframeEffect(tabContents[indexToHide], hideKeyframes, timing))
     }
 
-    sequenceEffects.push(new KeyframeEffect(tabContents[indexToShow], showKeyframes, timing))
+    sequenceEffects.push(new window.KeyframeEffect(tabContents[indexToShow], showKeyframes, timing))
 
-    const effect = new SequenceEffect(sequenceEffects)
+    const effect = new window.SequenceEffect(sequenceEffects)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     animation.onfinish = () => {
       changeListners.forEach(cb => cb(indexToShow))

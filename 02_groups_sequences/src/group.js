@@ -66,15 +66,15 @@ export default (topLeft, topRight, bottomLeft, bottomRight, duration) => {
   }
 
   const effects = [
-    new KeyframeEffect(topLeft, topLeftKeyframes, timing),
-    new KeyframeEffect(topRight, topRightKeyframes, timing),
-    new KeyframeEffect(bottomLeft, bottomLeftKeyframes, timing),
-    new KeyframeEffect(bottomRight, bottomRightKeyframes, timing)
+    new window.KeyframeEffect(topLeft, topLeftKeyframes, timing),
+    new window.KeyframeEffect(topRight, topRightKeyframes, timing),
+    new window.KeyframeEffect(bottomLeft, bottomLeftKeyframes, timing),
+    new window.KeyframeEffect(bottomRight, bottomRightKeyframes, timing)
   ]
 
-  const group = new GroupEffect(effects)
+  const group = new window.GroupEffect(effects)
 
-  const animation = new Animation(group, document.timeline)
+  const animation = new window.Animation(group, document.timeline)
 
   return animation
 }

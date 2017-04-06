@@ -42,9 +42,9 @@ export default class Snackbar extends React.Component {
       easing: 'ease-out'
     }
 
-    const effect = new KeyframeEffect(this.snackbar, SHOW_KEYFRAMES, timing)
+    const effect = new window.KeyframeEffect(this.snackbar, SHOW_KEYFRAMES, timing)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     animation.onfinish = () => {
       this.snackbarVisible = true
@@ -63,9 +63,9 @@ export default class Snackbar extends React.Component {
       easing: 'ease-out'
     }
 
-    const effect = new KeyframeEffect(this.snackbar, HIDE_KEYFRAMES, timing)
+    const effect = new window.KeyframeEffect(this.snackbar, HIDE_KEYFRAMES, timing)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     animation.onfinish = () => {
       this.snackbarVisible = false

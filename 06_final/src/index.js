@@ -14,7 +14,7 @@ const detailsBoxes = document.querySelectorAll('.details_box')
 const loadingBox = document.querySelector('.full_screen_loading')
 
 const playSequence = (sequence, cb = NOOP) => {
-  const animation = new Animation(new SequenceEffect(sequence), document.timeline)
+  const animation = new window.Animation(new window.SequenceEffect(sequence), document.timeline)
 
   animation.onfinish = cb
 

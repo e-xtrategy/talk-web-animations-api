@@ -22,9 +22,9 @@ export default element => {
   const show = message => {
     element.innerText = message
 
-    const effect = new KeyframeEffect(element, SHOW_KEYFRAMES, TIMING)
+    const effect = new window.KeyframeEffect(element, SHOW_KEYFRAMES, TIMING)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     const hideTimeout = element.dataset.hideTimeout ? parseInt(element.dataset.hideTimeout) : 3000
 
@@ -38,9 +38,9 @@ export default element => {
   const hide = message => {
     const HIDE_KEYFRAMES = [...SHOW_KEYFRAMES].reverse()
 
-    const effect = new KeyframeEffect(element, HIDE_KEYFRAMES, TIMING)
+    const effect = new window.KeyframeEffect(element, HIDE_KEYFRAMES, TIMING)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     animation.onfinish = () => {
       hideListeners.forEach(hideListener => hideListener())

@@ -50,19 +50,19 @@ export default (topLeft, topRight, bottomLeft, bottomRight, duration) => {
   }
 
   const effects = [
-    new KeyframeEffect(topLeft, topLeftKeyframesForward, timing),
-    new KeyframeEffect(topRight, topRightKeyframesForward, timing),
-    new KeyframeEffect(bottomRight, bottomRightKeyframesForward, timing),
-    new KeyframeEffect(bottomLeft, bottomLeftKeyframesForward, timing),
-    new KeyframeEffect(bottomLeft, [...bottomLeftKeyframesForward].reverse(), timing),
-    new KeyframeEffect(bottomRight, [...bottomRightKeyframesForward].reverse(), timing),
-    new KeyframeEffect(topRight, [...topRightKeyframesForward].reverse(), timing),
-    new KeyframeEffect(topLeft, [...topLeftKeyframesForward].reverse(), timing)
+    new window.KeyframeEffect(topLeft, topLeftKeyframesForward, timing),
+    new window.KeyframeEffect(topRight, topRightKeyframesForward, timing),
+    new window.KeyframeEffect(bottomRight, bottomRightKeyframesForward, timing),
+    new window.KeyframeEffect(bottomLeft, bottomLeftKeyframesForward, timing),
+    new window.KeyframeEffect(bottomLeft, [...bottomLeftKeyframesForward].reverse(), timing),
+    new window.KeyframeEffect(bottomRight, [...bottomRightKeyframesForward].reverse(), timing),
+    new window.KeyframeEffect(topRight, [...topRightKeyframesForward].reverse(), timing),
+    new window.KeyframeEffect(topLeft, [...topLeftKeyframesForward].reverse(), timing)
   ]
 
-  const sequence = new SequenceEffect(effects)
+  const sequence = new window.SequenceEffect(effects)
 
-  const animation = new Animation(sequence, document.timeline)
+  const animation = new window.Animation(sequence, document.timeline)
 
   return animation
 }

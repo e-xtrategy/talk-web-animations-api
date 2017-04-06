@@ -21,11 +21,11 @@ export default ({toFadeIn, toFadeOut}) => {
   const effects = []
 
   if (toFadeOut) {
-    effects.push(new KeyframeEffect(toFadeOut, fadeOutKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(toFadeOut, fadeOutKeyframes, TIMING))
   }
 
   if (toFadeIn) {
-    effects.push(new KeyframeEffect(toFadeIn, fadeInKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(toFadeIn, fadeInKeyframes, TIMING))
   }
 
   return effects

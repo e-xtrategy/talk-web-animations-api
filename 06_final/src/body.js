@@ -54,27 +54,27 @@ export default ({
     outDetailsBox}) => {
   const effects = []
   if (outDescriptionBox) {
-    effects.push(new KeyframeEffect(outDescriptionBox, descriptionBoxSwipeOutKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(outDescriptionBox, descriptionBoxSwipeOutKeyframes, TIMING))
   }
 
   if (outImageBox) {
-    effects.push(new KeyframeEffect(outImageBox, imageBoxSwipeOutKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(outImageBox, imageBoxSwipeOutKeyframes, TIMING))
   }
 
   if (outDetailsBox) {
-    effects.push(new KeyframeEffect(outDetailsBox, detailsBoxSwipeOutKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(outDetailsBox, detailsBoxSwipeOutKeyframes, TIMING))
   }
 
   if (inDescriptionBox) {
-    effects.push(new KeyframeEffect(inDescriptionBox, descriptionBoxSwipeInKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(inDescriptionBox, descriptionBoxSwipeInKeyframes, TIMING))
   }
 
   if (inImageBox) {
-    effects.push(new KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(inImageBox, imageBoxSwipeInKeyframes, TIMING))
   }
 
   if (inDetailsBox) {
-    effects.push(new KeyframeEffect(inDetailsBox, detailsBoxSwipeInKeyframes, TIMING))
+    effects.push(new window.KeyframeEffect(inDetailsBox, detailsBoxSwipeInKeyframes, TIMING))
   }
 
   return effects

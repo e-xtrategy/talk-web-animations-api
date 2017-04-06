@@ -34,11 +34,11 @@ const createActivateEffects = toActivate => {
   const toActivateEm = toActivate.querySelector('em')
 
   const effects = [
-    new KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING),
-    new KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)
+    new window.KeyframeEffect(toActivateSpan, toActivateTextKeyframes, TIMING),
+    new window.KeyframeEffect(toActivateEm, toActivateEmKeyframes, TIMING)
   ]
 
-  return new GroupEffect(effects)
+  return new window.GroupEffect(effects)
 }
 
 const createDeactivateEffects = toDeactivate => {
@@ -46,11 +46,11 @@ const createDeactivateEffects = toDeactivate => {
   const toDeactivateEm = toDeactivate.querySelector('em')
 
   const effects = [
-    new KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING),
-    new KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)
+    new window.KeyframeEffect(toDeactivateSpan, toDeactivateTextKeyframes, TIMING),
+    new window.KeyframeEffect(toDeactivateEm, toDeactivateEmKeyframes, TIMING)
   ]
 
-  return new GroupEffect(effects)
+  return new window.GroupEffect(effects)
 }
 
 export default ({toActivate, toDeactivate}) => {

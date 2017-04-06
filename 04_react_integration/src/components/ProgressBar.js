@@ -28,9 +28,9 @@ const animate = (element, from, to, duration) => {
     }
   ]
 
-  const effect = new KeyframeEffect(element, keyframes, timing)
+  const effect = new window.KeyframeEffect(element, keyframes, timing)
 
-  const animation = new Animation(effect, document.timeline)
+  const animation = new window.Animation(effect, document.timeline)
 
   animation.play()
 }

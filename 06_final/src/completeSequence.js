@@ -34,7 +34,7 @@ export default ({timeLineItems, titles, descriptionBoxes, imageBoxes, detailsBox
     effects = effects.concat(generateSequenceStep(index, index + 1))
   }
 
-  const animation = new Animation(new SequenceEffect(effects), document.timeline)
+  const animation = new window.Animation(new window.SequenceEffect(effects), document.timeline)
 
   animation.onfinish = onFinish
 

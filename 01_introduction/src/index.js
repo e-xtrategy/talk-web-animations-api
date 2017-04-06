@@ -23,9 +23,9 @@ window.changeColor = color => {
 
   currentColor = color
 
-  const effect = new KeyframeEffect(element, keyframes, timing)
+  const effect = new window.KeyframeEffect(element, keyframes, timing)
 
-  animation = new Animation(effect, document.timeline)
+  animation = new window.Animation(effect, document.timeline)
 
   animation.onfinish = () => {
     console.log(`the square is now ${color}`)

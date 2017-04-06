@@ -17,9 +17,9 @@ const fadeOutKeyframes = [
 ]
 
 export default (loading, cb = NOOP) => {
-  const effect = new KeyframeEffect(loading, fadeOutKeyframes, TIMING)
+  const effect = new window.KeyframeEffect(loading, fadeOutKeyframes, TIMING)
 
-  const animation = new Animation(effect, document.timeline)
+  const animation = new window.Animation(effect, document.timeline)
 
   animation.onfinish = () => {
     loading.style.display = 'none'

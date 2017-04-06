@@ -56,23 +56,23 @@ export default (topLeft, topRight, bottomLeft, bottomRight, duration) => {
   }
 
   const effects = [
-    new GroupEffect([
-      new KeyframeEffect(topLeft, topLeftKeyframesForward, timingForward),
-      new KeyframeEffect(topRight, topRightKeyframesForward, timingForward),
-      new KeyframeEffect(bottomRight, bottomRightKeyframesForward, timingForward),
-      new KeyframeEffect(bottomLeft, bottomLeftKeyframesForward, timingForward)
+    new window.GroupEffect([
+      new window.KeyframeEffect(topLeft, topLeftKeyframesForward, timingForward),
+      new window.KeyframeEffect(topRight, topRightKeyframesForward, timingForward),
+      new window.KeyframeEffect(bottomRight, bottomRightKeyframesForward, timingForward),
+      new window.KeyframeEffect(bottomLeft, bottomLeftKeyframesForward, timingForward)
     ]),
-    new GroupEffect([
-      new KeyframeEffect(bottomLeft, [...bottomLeftKeyframesForward].reverse(), timingBackward),
-      new KeyframeEffect(bottomRight, [...bottomRightKeyframesForward].reverse(), timingBackward),
-      new KeyframeEffect(topRight, [...topRightKeyframesForward].reverse(), timingBackward),
-      new KeyframeEffect(topLeft, [...topLeftKeyframesForward].reverse(), timingBackward)
+    new window.GroupEffect([
+      new window.KeyframeEffect(bottomLeft, [...bottomLeftKeyframesForward].reverse(), timingBackward),
+      new window.KeyframeEffect(bottomRight, [...bottomRightKeyframesForward].reverse(), timingBackward),
+      new window.KeyframeEffect(topRight, [...topRightKeyframesForward].reverse(), timingBackward),
+      new window.KeyframeEffect(topLeft, [...topLeftKeyframesForward].reverse(), timingBackward)
     ])
   ]
 
-  const group = new SequenceEffect(effects)
+  const group = new window.SequenceEffect(effects)
 
-  const animation = new Animation(group, document.timeline)
+  const animation = new window.Animation(group, document.timeline)
 
   return animation
 }

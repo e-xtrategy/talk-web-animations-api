@@ -2,22 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { getShowKeyframes } from '../model/tabsKeyframes'
 
-const TABLIST_STYLE = {
-  overflow: 'hidden',
-  border: '1px solid #ccc',
-  backgroundColor: '#f1f1f1',
-  height: '50px'
-}
-
-const TAB_LINK_STYLE = {
-  float: 'left',
-  display: 'block',
-  color: 'black',
-  textAlign: 'center',
-  padding: '14px 16px',
-  fontSize: '17px'
-}
-
 export default class Tabs extends React.Component {
   constructor (props) {
     super(props)
@@ -57,13 +41,13 @@ export default class Tabs extends React.Component {
     const hideKeyframes = [...showKeyframes].reverse()
 
     const sequenceEffects = [
-      new KeyframeEffect(ReactDOM.findDOMNode(this.tabNodes[indextToHide]), hideKeyframes, timing),
-      new KeyframeEffect(ReactDOM.findDOMNode(this.tabNodes[indexToShow]), showKeyframes, timing)
+      new window.KeyframeEffect(ReactDOM.findDOMNode(this.tabNodes[indextToHide]), hideKeyframes, timing),
+      new window.KeyframeEffect(ReactDOM.findDOMNode(this.tabNodes[indexToShow]), showKeyframes, timing)
     ]
 
-    const effect = new SequenceEffect(sequenceEffects)
+    const effect = new window.SequenceEffect(sequenceEffects)
 
-    const animation = new Animation(effect, document.timeline)
+    const animation = new window.Animation(effect, document.timeline)
 
     animation.onfinish = () => {
       this.props.onChange(indexToShow)
